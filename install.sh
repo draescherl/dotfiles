@@ -12,12 +12,9 @@ apt autoremove -y
 mkdir ./tmp
 
 # Utilities
-apt install -y \
-    git \
-    ca-certificates \
-    curl \
-    gnupg \
-    lsb-release
+apt install -y git ca-certificates curl gnupg lsb-release
+git config --global user.name "Lucas DRAESCHER"
+git config --global user.email "lucas.draescher@gmail.com"
 
 # Install and configure Zsh
 apt install -y zsh
