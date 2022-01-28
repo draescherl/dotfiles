@@ -18,6 +18,7 @@ git config --global user.email "lucas.draescher@gmail.com"
 
 # Install and configure Zsh
 apt install -y zsh
+#TODO: add configuration
 
 # Build tools
 apt install -y build-essential
@@ -32,6 +33,11 @@ usermod -aG docker $USER
 newgrp docker
 systemctl enable docker.service
 systemctl enable containerd.service
+
+# Docker compose
+curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
+#TODO: look into completions
 
 # Node.js
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
@@ -59,7 +65,6 @@ apt install apt-transport-https
 apt update
 apt install -y code
 
-# JetBrains toolbox
 # Discord
 wget -O ./tmp/discord.deb https://discord.com/api/download?platform=linux&format=deb
 apt install -y ./tmp/discord.deb
@@ -71,6 +76,10 @@ apt update
 apt install -y spotify-client
 
 # Virtualisation stuff
+# JetBrains toolbox
+# Obsidian
+# Postman
+
 # Remove bash artifacts
 rm -f ~/.bash_history
 rm -f ~/.profile
