@@ -71,3 +71,6 @@ alias wget="wget --hsts-file ~/.config/wget-hsts"
 # load plugins
 source $ZSH_DIR/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $ZSH_DIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# enable bash-like command suggestions
+source /etc/zsh_command_not_found
