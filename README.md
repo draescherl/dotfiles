@@ -10,7 +10,7 @@ My config files
 - Discord/Slack
 - JetBrains Toolbox/VSCode
 - Rust/NVM
-- Docker/QEMU/KVM
+- QEMU/KVM
 - Spotify/Stremio/VLC
 - MarkText
 - OpenRGB
