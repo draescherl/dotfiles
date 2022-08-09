@@ -23,7 +23,15 @@ git config --global user.email "lucas.draescher@gmail.com"
 apt install -yyq zsh
 cp .zshrc ~/
 cp -r .zsh ~/
-#TODO: automate git cloning of plugins/themes
+for dir in .zsh/*; do
+        if [ -d $dir ]; then
+                while IFS= read -r line; do
+                        cd $dir
+			$line
+			cd ../..
+                done < ./$dir/git-repos.txt
+        fi
+done
 
 
 
