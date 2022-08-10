@@ -21,8 +21,6 @@ git config --global user.email "lucas.draescher@gmail.com"
 
 # Install and configure Zsh
 apt install -yyq zsh
-cp .zshrc ~/
-cp -r .zsh ~/
 for dir in .zsh/*; do
         if [ -d $dir ]; then
                 while IFS= read -r line; do
@@ -32,6 +30,8 @@ for dir in .zsh/*; do
                 done < ./$dir/git-repos.txt
         fi
 done
+cp -r .zsh /home/$SUDO_USER
+cp .zshrc /home/$SUDO_USER
 
 
 
