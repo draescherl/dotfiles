@@ -13,8 +13,6 @@ autoload -Uz promptinit
 promptinit
 prompt adam1
 
-setopt histignorealldups sharehistory
-
 # Use emacs keybindings even if our EDITOR is set to vi
 bindkey -e
 
@@ -22,6 +20,7 @@ bindkey -e
 HISTSIZE=5000
 SAVEHIST=5000
 HISTFILE=$ZSH_DIR/zsh_history
+setopt INC_APPEND_HISTORY_TIME # Multiple shells write to same history file but are not immediately available from other instances
 
 # Use modern completion system
 autoload -Uz compinit -D -d $ZSH_DIR/zcompdump
@@ -51,7 +50,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
 alias ll='ls -alF'
@@ -65,7 +64,7 @@ alias rm='rm -i'
 alias untar='tar -xvzf'
 alias compress='tar -cvzf'
 
-# wget alias (prevent it from generating the hosts file in the home directory
+# wget alias (prevent it from generating the hosts file in the home directory)
 alias wget="wget --hsts-file ~/.config/wget-hsts"
 
 # load plugins
