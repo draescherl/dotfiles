@@ -33,6 +33,8 @@ done
 cp -r .zsh /home/$SUDO_USER
 cp .zshrc /home/$SUDO_USER
 
+# Enable minimize on click while keeping the multiple window picker enabled
+gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize-or-previews'
 
 
 #  ----------------------------------------------------------------------
