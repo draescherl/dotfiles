@@ -30,10 +30,8 @@ for dir in .zsh/*; do
                 done < ./$dir/git-repos.txt
         fi
 done
-cp -r .zsh /home/$SUDO_USER
-cp .zshrc /home/$SUDO_USER
-chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.zsh
-chown $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.zshrc
+cp -r {.zsh,.zshrc} /home/$SUDO_USER
+chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/{.zsh,.zshrc}
 
 # Enable minimize on click while keeping the multiple window picker enabled
 gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize-or-previews'
@@ -79,8 +77,7 @@ usermod -aG docker $SUDO_USER
 #  ----------------------------------------------------------------------
 
 # Remove bash artifacts
-rm -f ~/.bash_history
-rm -f ~/.profile
+rm -f /home/$SUDO_USER/{.bash_history,.bash_logout,.profile}
 
 # Make zsh the default shell
 chsh --shell /bin/zsh $SUDO_USER
