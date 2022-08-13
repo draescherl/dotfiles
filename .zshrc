@@ -6,7 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # zsh folder
-export ZSH_DIR="/home/lucas/.zsh"
+export ZSH_DIR="/home/$USER/.zsh"
 
 # Set up the prompt
 autoload -Uz promptinit
@@ -17,9 +17,9 @@ prompt adam1
 bindkey -e
 
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
-HISTSIZE=5000
-SAVEHIST=5000
 HISTFILE=$ZSH_DIR/zsh_history
+HISTSIZE=10000
+SAVEHIST=1000
 setopt INC_APPEND_HISTORY_TIME # Multiple shells write to same history file but are not immediately available from other instances
 
 # Use modern completion system
