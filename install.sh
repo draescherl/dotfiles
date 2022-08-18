@@ -70,6 +70,12 @@ apt install -yqq docker-ce docker-ce-cli containerd.io docker-compose-plugin
 groupadd docker
 usermod -aG docker $SUDO_USER
 
+# PostgreSQL
+sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
+apt update
+apt install -yqq postgresql
+
 
 
 #  ----------------------------------------------------------------------
