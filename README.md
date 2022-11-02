@@ -2,15 +2,13 @@
 My config files
 
 ## Prerequisite
-1. Make sure `git` is installed
-2. Generate and upload an ssh key to GitHub `ssh-keygen -t ed25519`
-3. Give execution permissions to the script `chmod +x ./install.sh`
+1. `git` is installed and configured (key generated & uploaded, config set)
+2. Make install script executable: `chmod +x ./install.sh`
+3. Make distro-specific scripts executable: `chmod -R +x ./distro-specific`
 
-## Tools to install manually (or automate later ...)
-- Discord/Slack
-- JetBrains Toolbox/VSCode
-- Rust/NVM
-- QEMU/KVM
-- Spotify/Stremio/VLC
-- MarkText
-- OpenRGB
+## Manual steps
+1. Change shell to zsh: `chsh --shell /bin/zsh <username>`
+2. Install software manually
+    - Chat apps: Discord, Slack
+    - IDEs: JetBrains Toolbox
+    - Media: Spotify, Stremio

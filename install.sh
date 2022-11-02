@@ -1,93 +1,38 @@
-#! /bin/sh
+#! /bin/bash
 
-
-
-#  ----------------------------------------------------------------------
-# |                          General stuff                               |
-#  ----------------------------------------------------------------------
 
 # Run script as root
 [ "$(whoami)" != "root" ] && exec sudo -- "$0" "$@"
+echo "Running distro-agnostic setup."
 
-# Update and upgrade
-apt update -yyq
-apt dist-upgrade -yyq
-apt autoremove -yyq
-
-# Utilities
-apt install -yyq git ca-certificates curl gnupg lsb-release build-essential apt-transport-https
-git config --global user.name "Lucas DRAESCHER"
-git config --global user.email "lucas.draescher@gmail.com"
-
-# Install and configure Zsh
-apt install -yyq zsh
+# Configure Zsh
 for dir in .zsh/*; do
         if [ -d $dir ]; then
-                while IFS= read -r line; do
+                while IFS= read -r repository; do
                         cd $dir
-			$line
-			cd ../..
+                        git clone $repository
+            			cd ../..
                 done < ./$dir/git-repos.txt
         fi
 done
 cp -r {.zsh,.zshrc} /home/$SUDO_USER
 chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/{.zsh,.zshrc}
 
+# Starship.rs prompt
+cp ./starship.toml /home/$SUDO_USER/.config/
+
 # Enable minimize on click while keeping the multiple window picker enabled
 gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize-or-previews'
-
-
-#  ----------------------------------------------------------------------
-# |                       Programming stuff                              |
-#  ----------------------------------------------------------------------
-
-# Python
-apt install -yqq python3-virtualenv
-
-# Java
-apt install -yqq default-jre default-jdk
-
-# Scala
-echo "deb https://repo.scala-sbt.org/scalasbt/debian all main" | tee /etc/apt/sources.list.d/sbt.list
-echo "deb https://repo.scala-sbt.org/scalasbt/debian /" | tee /etc/apt/sources.list.d/sbt_old.list
-curl -sL "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x2EE0EA64E40A89B84B2DF73499E82A75642AC823" | gpg --no-default-keyring --keyring gnupg-ring:/etc/apt/trusted.gpg.d/scalasbt-release.gpg --import
-chmod 644 /etc/apt/trusted.gpg.d/scalasbt-release.gpg
-apt update -yqq
-apt install -yqq sbt
-
-# Clever Cloud CLI
-curl -fsSL https://clever-tools.clever-cloud.com/gpg/cc-nexus-deb.public.gpg.key | gpg --dearmor -o /usr/share/keyrings/cc-nexus-deb.gpg
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/cc-nexus-deb.gpg] https://nexus.clever-cloud.com/repository/deb stable main" | tee -a /etc/apt/sources.list
-apt update -yqq
-apt install -yqq clever-tools
-
-# Docker
-mkdir -p /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
-apt update -yqq
-apt install -yqq docker-ce docker-ce-cli containerd.io docker-compose-plugin
-groupadd docker
-usermod -aG docker $SUDO_USER
-
-# PostgreSQL
-sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
-wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
-apt update
-apt install -yqq postgresql
-
-
-
-#  ----------------------------------------------------------------------
-# |                             Cleanup                                  |
-#  ----------------------------------------------------------------------
 
 # Remove bash artifacts
 rm -f /home/$SUDO_USER/{.bash_history,.bash_logout,.profile}
 
-# Make zsh the default shell
-chsh --shell /bin/zsh $SUDO_USER
-
-# Indications
-echo '----------------------------------------'
-echo 'Run: newgrp docker'
+# Call distro-specific scripts
+SUPPORTED_DISTROS=("ubuntu" "exherbo")
+DISTRO=$(grep -Po "(?<=^ID=).+" /etc/os-release | sed 's/"//g')
+echo "Detected distro: $DISTRO."
+if [[ " ${SUPPORTED_DISTROS[*]} " =~ " ${DISTRO} " ]]; then
+    /bin/bash "./distro-specific/$DISTRO.sh"
+else
+    echo "Unsupported distribution."
+fi
