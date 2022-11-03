@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 echo "Running distro-agnostic setup."
 CALLING_USER=${SUDO_USER:-$USER}
