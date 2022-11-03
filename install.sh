@@ -1,9 +1,7 @@
 #! /bin/bash
 
-
-# Run script as root
-[ "$(whoami)" != "root" ] && exec sudo -- "$0" "$@"
 echo "Running distro-agnostic setup."
+CALLING_USER=${SUDO_USER:-$USER}
 
 # Configure Zsh
 for dir in .zsh/*; do
@@ -15,17 +13,20 @@ for dir in .zsh/*; do
                 done < ./$dir/git-repos.txt
         fi
 done
-cp -r {.zsh,.zshrc} /home/$SUDO_USER
-chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/{.zsh,.zshrc}
+cp -r {.zsh,.zshrc} /home/$CALLING_USER
+chown -R $CALLING_USER:$CALLING_USER /home/$CALLING_USER/{.zsh,.zshrc}
 
 # Starship.rs prompt
-cp ./starship.toml /home/$SUDO_USER/.config/
+cp ./starship.toml /home/$CALLING_USER/.config/
+
+# Tmux conf
+cp ./.tmux.conf /home/$CALLING_USER/
 
 # Enable minimize on click while keeping the multiple window picker enabled
 gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize-or-previews'
 
 # Remove bash artifacts
-rm -f /home/$SUDO_USER/{.bash_history,.bash_logout,.profile}
+rm -f /home/$CALLING_USER/{.bash_history,.bash_logout,.profile}
 
 # Call distro-specific scripts
 SUPPORTED_DISTROS=("ubuntu" "exherbo")
