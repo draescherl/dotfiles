@@ -1,6 +1,7 @@
 #!/bin/bash
 
 echo "Running ubuntu-specific setup tasks."
+CALLING_USER=${SUDO_USER:-$USER}
 
 
 # update, upgrade and install utilities
@@ -40,8 +41,8 @@ apt install -yyq \
 	docker-ce docker-ce-cli containerd.io docker-compose-plugin  # docker
 
 
-# --- Software specific steps
+# --- Software specific steps ---
 
 # docker
 groupadd docker
-usermod -aG docker $SUDO_USER
+usermod -aG docker $CALLING_USER

@@ -3,6 +3,7 @@
 echo "Running distro-agnostic setup."
 CALLING_USER=${SUDO_USER:-$USER}
 
+
 # Configure Zsh
 for dir in .zsh/*; do
         if [ -d $dir ]; then
@@ -28,8 +29,11 @@ gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize-or-
 # Remove bash artifacts
 rm -f /home/$CALLING_USER/{.bash_history,.bash_logout,.profile}
 
+# Rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -qy
+
 # Call distro-specific scripts
-SUPPORTED_DISTROS=("ubuntu" "exherbo")
+SUPPORTED_DISTROS=("ubuntu" "exherbo" "fedora")
 DISTRO=$(grep -Po "(?<=^ID=).+" /etc/os-release | sed 's/"//g')
 echo "Detected distro: $DISTRO."
 if [[ " ${SUPPORTED_DISTROS[*]} " =~ " ${DISTRO} " ]]; then
