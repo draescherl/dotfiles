@@ -5,19 +5,13 @@ $git_commit\
 $git_state\
 $git_metrics\
 $git_status\
-$docker_context\
 $package\
-$c\
-$haskell\
-$java\
-$nodejs\
 $python\
 $rust\
 $scala\
 $cmd_duration\
 $character
 """
-
 
 # Remove line separator between shell prompts
 add_newline = false
@@ -36,21 +30,10 @@ min_time = 1_000
 read_only = " "
 truncate_to_repo = false
 truncation_symbol = ".../"
-
-[docker_context]
-symbol = " "
+truncation_length = 2
 
 [git_branch]
 symbol = " "
-
-[haskell]
-symbol = " "
-
-[java]
-symbol = " "
-
-[nodejs]
-symbol = " "
 
 [package]
 symbol = " "
