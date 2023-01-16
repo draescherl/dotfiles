@@ -27,7 +27,7 @@ error_symbol = "[✗](bold red) "
 min_time = 1_000
 show_notifications = true
 min_time_to_notify = 30_000
-format = '[\($duration\)](bold yellow)'
+format = 'took [$duration](bold yellow) '
 
 [directory]
 read_only = " "
