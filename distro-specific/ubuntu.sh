@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Running ubuntu-specific setup tasks."
+echo "[+] Running ubuntu-specific setup tasks."
 CALLING_USER=${SUDO_USER:-$USER}
 
 

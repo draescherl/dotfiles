@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Running fedora-specific setup tasks."
+echo "[+] Running fedora-specific setup tasks."
 CALLING_USER=${SUDO_USER:-$USER}
 
 

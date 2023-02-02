@@ -1,3 +1,3 @@
 #!/bin/bash
 
-echo "Running exherbo-specific setup tasks."
+echo "[+] Running exherbo-specific setup tasks."
