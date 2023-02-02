@@ -21,11 +21,28 @@ dnf install -y \
 dnf config-manager --add-repo \
   https://download.docker.com/linux/fedora/docker-ce.repo
 
+# scala
+rm -f /etc/yum.repos.d/bintray-rpm.repo
+curl -L https://www.scala-sbt.org/sbt-rpm.repo > /etc/yum.repos.d/
+
+# clever tools
+curl -s https://clever-tools.clever-cloud.com/repos/cc-nexus-rpm.repo > /etc/yum.repos.d/cc-nexus-rpm.repo
+
+# flathub
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
 
 # --- Install software ---
 
 dnf install -y \
-  docker-ce docker-ce-cli containerd.io docker-compose-plugin
+  docker-ce docker-ce-cli containerd.io docker-compose-plugin \
+  java-latest-openjdk-devel.x86_64 sbt \
+  clever-tools \
+  htop \
+  ffmpeg-libs
+
+flatpak install -y flathub com.slack.Slack
+flatpak install -y flathub com.discordapp.Discord
 
 
 # --- Software specific steps ---

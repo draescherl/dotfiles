@@ -18,6 +18,7 @@ cp -r {.zsh,.zshrc} /home/$CALLING_USER
 chown -R $CALLING_USER:$CALLING_USER /home/$CALLING_USER/{.zsh,.zshrc}
 
 # Starship.rs prompt
+curl -sS https://starship.rs/install.sh | sh
 cp ./starship.toml /home/$CALLING_USER/.config/
 
 # Tmux conf
