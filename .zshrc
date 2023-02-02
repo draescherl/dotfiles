@@ -54,4 +54,4 @@ source $ZSH_DIR/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $ZSH_DIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # add JetBrains IDEs to PATH
-export PATH="$PATH:~/.local/share/JetBrains/Toolbox/apps"
+export PATH="$PATH:/home/$USER/.local/share/JetBrains/Toolbox/scripts"
