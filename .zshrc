@@ -40,6 +40,7 @@ alias rm='rm -i'
 alias untar='tar -xvzf'
 alias compress='tar -cvzf'
 alias cat='bat'
+alias cd='z'
 
 # wget alias (prevent it from generating the hosts file in the home directory)
 alias wget="wget --hsts-file ~/.config/wget-hsts"
