@@ -18,8 +18,7 @@ dnf install -y \
 # --- Import repositories ---
 
 # docker
-dnf config-manager --add-repo \
-  https://download.docker.com/linux/fedora/docker-ce.repo
+dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
 
 # scala
 rm -f /etc/yum.repos.d/bintray-rpm.repo
@@ -34,13 +33,10 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 
 # --- Install software ---
 
-dnf install -y \
-  docker-ce docker-ce-cli containerd.io docker-compose-plugin \
-  java-latest-openjdk-devel.x86_64 sbt \
-  clever-tools \
-  htop \
-  ffmpeg-libs \
-  zsh direnv zoxide bat
+dnf install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
+dnf install -y java-latest-openjdk-devel.x86_64 sbt
+dnf install -y clever-tools htop ffmpeg-libs
+dnf install -y zsh direnv zoxide bat
 
 usermod -s /usr/bin/zsh $CALLING_USER
 
