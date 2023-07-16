@@ -13,6 +13,7 @@ compinit -D -d $ZSH_DIR/zcompdump
 zstyle ':completion:*' menu select
 zstyle ':completion:*' verbose no
 zstyle ':completion:*' list-dirs-first true
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 eval "$(dircolors)"
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
@@ -31,23 +32,22 @@ fi
 # coloured GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-# some more ls aliases
-alias ll='ls -alF'
+# aliases
+alias ll='ls -alFh'
 alias la='ls -A'
 alias l='ls -CF'
-
-# rm aliases
 alias rm='rm -i'
-
-# tar aliases
 alias untar='tar -xvzf'
 alias compress='tar -cvzf'
+alias cat='bat'
 
 # wget alias (prevent it from generating the hosts file in the home directory)
 alias wget="wget --hsts-file ~/.config/wget-hsts"
 
-# source starship prompt
+# source extensions
 eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
+eval "$(direnv hook zsh)"
 
 # load plugins
 source $ZSH_DIR/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
