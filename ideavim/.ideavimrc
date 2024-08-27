@@ -1,0 +1,83 @@
+" Useful resources:
+" - Mapping IDE actions: https://jb.gg/abva4t
+" - List of commands:    https://jb.gg/h38q75
+" - Community examples:  https://jb.gg/share-ideavimrc
+" - https://www.cyberwizard.io/posts/the-ultimate-ideavim-setup/
+
+let mapleader=" "
+
+""" Settings
+set ideaput
+set scrolloff=15
+set number
+set relativenumber
+set showmode
+set showcmd
+set visualbell
+set clipboard+=unnamed
+set incsearch
+set noignorecase
+"set ignorecase
+"set smartcase   " if any search character is uppercase then use case sensitive
+set hlsearch
+
+""" Plugins
+Plug 'machakann/vim-highlightedyank'
+Plug 'preservim/nerdtree'
+Plug 'tpope/vim-surround'
+
+""" Vim key binds
+map <leader> <nop>
+inoremap jj <Esc>
+nnoremap <A-p> <Action>(PreviousTab)
+nnoremap <A-n> <Action>(NextTab)
+
+""" Random utilities
+nnoremap <leader>h :set invhlsearch<CR>
+nmap <leader>vv <Action>(IdeaVim.ReloadVimRc.reload)
+map <leader>: <Action>(CommentByLineComment)
+map <leader>x :NERDTreeToggle<CR>
+map <leader>am <Action>(ShowIntentionActions)
+map <leader>ns <Action>(NewScratchFile)
+
+" Tabs
+map <leader>t <Action>(ActivateTerminalToolWindow)
+map <leader>q <Action>(CloseContent)
+map <leader>c <Action>(ReopenClosedTab)
+map <leader>n <Action>(NextSplitter)
+map <leader>z <Action>(MaximizeEditorInSplit)
+map <leader>sc <Action>(ChangeSplitOrientation)
+map <leader>sv <Action>(MoveTabRight)
+map <leader>sh <Action>(MoveTabDown)
+map <leader>su <Action>(Unsplit)
+map <leader>sm <Action>(MoveEditorToOppositeTabGroup)
+
+" Display options
+map <leader>dd <Action>(ToggleDistractionFreeMode)
+map <leader>dz <Action>(ToggleZenMode)
+map <leader>df <Action>(ToggleFullScreen)
+
+" Searching
+map <leader>sa <Action>(SearchEverywhere)
+map <leader>sf <Action>(GotoFile)
+map <leader>sr <Action>(RecentFiles)
+map <leader>si <Action>(FindInPath)
+map <leader>sl <Action>(RecentLocations)
+
+" Refactoring
+map <leader>rr <Action>(RenameElement)
+map <leader>ri <Action>(ReformatCode)
+map <leader>rm <Action>(ExtractMethod)
+map <leader>rv <Action>(IntroduceVariable)
+map <leader>rf <Action>(IntroduceField)
+map <leader>rs <Action>(ChangeSignature)
+map <leader>rp <Action>(Refactorings.QuickListPopupAction)
+
+" Go to code
+nmap <leader>gd <Action>(GotoDeclaration)
+nmap <leader>gy <Action>(GotoTypeDeclaration)
+nmap <leader>gi <Action>(GotoImplementation)
+nmap <leader>gu <Action>(ShowUsages)
+nmap <leader>gt <Action>(GotoTest)
+nmap <leader>gf <Action>(Back)
+nmap <leader>gb <Action>(Forward)
