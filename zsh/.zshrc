@@ -10,12 +10,13 @@ export VISUAL=nvim
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 export NVM_DIR="$HOME/.nvm"
 export PSQL_PAGER='pspg -X -b'
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Loading nvm causes significant shell startup delay. Uncomment to use nvm.
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 # history
 HISTFILE=$ZSH_DIR/zsh_history
-HISTSIZE=100000
+HISTSIZE=1000
 SAVEHIST=$HISTSIZE
 setopt hist_ignore_all_dups
 setopt hist_ignore_space
