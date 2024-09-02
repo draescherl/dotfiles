@@ -1,3 +1,3 @@
 #!/bin/bash
 
-/usr/bin/stow -v -S $(/usr/bin/ls -d */)
+/usr/bin/stow -v -S --restow */
