@@ -24,7 +24,7 @@ format = 'took [$duration](bold yellow) '
 
 [directory]
 read_only = " "
-truncation_length = 2
+truncation_length = 1
 truncate_to_repo = false
 
 [git_branch]
