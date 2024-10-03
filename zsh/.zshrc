@@ -25,6 +25,7 @@ setopt inc_append_history_time
 # autocomplete
 autoload -Uz compinit -D -d $ZSH_DIR/zcompdump
 compinit -D -d $ZSH_DIR/zcompdump
+_comp_options+=(globdots)
 zstyle ':completion:*' menu select
 zstyle ':completion:*' verbose no
 zstyle ':completion:*' list-dirs-first true
