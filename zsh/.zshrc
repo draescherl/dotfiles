@@ -78,5 +78,4 @@ eval "$(dircolors)"
 eval "$(starship init zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(direnv hook zsh)"
-eval "$(fzf --zsh)"
 eval "$(op completion zsh)"; compdef _op op
