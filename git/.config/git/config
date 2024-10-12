@@ -1,3 +1,5 @@
+[include]
+	path = ./catppuccin.gitconfig
 [user]
 	name = Lucas DRAESCHER
 	email = lucas.draescher@gmail.com
@@ -11,8 +13,8 @@
 	diffFilter = delta --color-only
 [delta]
 	navigate = true    # use n and N to move between diff sections
-	dark = true
 	line-numbers = true
+	features = catppuccin-mocha
 [merge]
 	conflictstyle = diff3
 [diff]
