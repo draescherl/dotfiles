@@ -11,6 +11,7 @@ import = [
 [window]
 decorations = "None"
 startup_mode = "Maximized"
+opacity = 0.9
 
 [font]
 normal = { family = "JetBrainsMono Nerd Font", style = "Bold" }
