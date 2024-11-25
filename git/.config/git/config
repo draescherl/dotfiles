@@ -25,4 +25,4 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 [includeIf "gitdir:~/Documents/pro/"]
-	path = ./.gitconfig-pro
+	path = ./config-pro
