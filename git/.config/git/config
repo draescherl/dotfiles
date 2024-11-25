@@ -9,6 +9,7 @@
 	autoSetupRemote = true
 [core]
 	pager = delta
+	excludeFiles = ./ignore
 [interactive]
 	diffFilter = delta --color-only
 [delta]
