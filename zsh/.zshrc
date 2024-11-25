@@ -66,7 +66,7 @@ autoload -U select-word-style
 select-word-style bash
 bindkey -e
 bindkey '^v' autosuggest-accept
-bindkey -s ^f "~/.zsh/scripts/tmux-sessionizer.sh\n"
+#bindkey -s ^f "~/.zsh/scripts/tmux-sessionizer.sh\n"
 bindkey ^R history-incremental-search-backward
 bindkey ^S history-incremental-search-forward
 bindkey "^[[1;3C" forward-word
