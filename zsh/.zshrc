@@ -87,3 +87,13 @@ eval "$(op completion zsh)"; compdef _op op
 hvssh() { ssh -t bastion -- "source /data/bastion/.bashrc; ssh hv-$1" }
 vmssh() { ssh -t bastion -- "source /data/bastion/.bashrc; instanceSSH $1" }
 idssh() { ssh -t bastion -- "source /data/bastion/.bashrc; sshToFirstAppInstances $1" }
+
+my-clear() {
+  for i in {3..$(tput lines)}
+  do
+    printf '\n'
+  done
+  zle clear-screen
+}
+zle -N my-clear
+bindkey '^L' my-clear
