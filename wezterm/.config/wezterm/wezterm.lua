@@ -13,6 +13,7 @@ config.tab_bar_at_bottom = true
 config.use_fancy_tab_bar = false
 config.bypass_mouse_reporting_modifiers = "SHIFT"
 config.disable_default_key_bindings = true
+config.default_cursor_style = "SteadyBar"
 config.window_padding = {
 	left = 0,
 	top = 0,
