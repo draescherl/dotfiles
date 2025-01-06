@@ -1,0 +1,24 @@
+text-cursor = true
+matching-algorithm = fuzzy
+drun-launch = true
+
+# STYLE OPTIONS
+font = JetBrainsMono Nerd Font
+font-size = 16
+background-color = #232634
+outline-width = 0
+border-width = 1
+border-color = #686868
+text-color = #c6d0f5
+prompt-text = "❯ "
+prompt-color = #a6e3a1
+text-cursor-style = underscore
+num-results = 18
+selection-color = #8caaee
+result-spacing = 5
+corner-radius = 3
+output = ""
+padding-top = 2%
+padding-bottom = 0
+padding-left = 2%
+padding-right = 0
