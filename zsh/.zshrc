@@ -54,6 +54,7 @@ alias lt='ls -TL'
 alias l='ls'
 alias c='clear'
 alias n='nvim'
+alias vim='nvim'
 alias z='zellij'
 alias wget="wget --hsts-file ~/.config/wget-hsts" # (prevent it from generating the hosts file in the home directory)
 alias ccssh="ssh BASTION"
@@ -81,3 +82,8 @@ eval "$(starship init zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(direnv hook zsh)"
 eval "$(op completion zsh)"; compdef _op op
+
+# CC utils
+hvssh() { ssh -t bastion -- "source /data/bastion/.bashrc; ssh hv-$1" }
+vmssh() { ssh -t bastion -- "source /data/bastion/.bashrc; instanceSSH $1" }
+idssh() { ssh -t bastion -- "source /data/bastion/.bashrc; sshToFirstAppInstances $1" }
