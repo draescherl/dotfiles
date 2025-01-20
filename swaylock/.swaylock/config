@@ -1,5 +1,6 @@
+datestr=%a, %d %b %Y
 color=303446
-bs-hl-color=f2d5cf
+bs-hl-color=f38ba8
 caps-lock-bs-hl-color=f2d5cf
 caps-lock-key-hl-color=a6d189
 inside-color=00000000
@@ -7,7 +8,7 @@ inside-clear-color=00000000
 inside-caps-lock-color=00000000
 inside-ver-color=00000000
 inside-wrong-color=00000000
-key-hl-color=a6d189
+key-hl-color=11111b
 layout-bg-color=00000000
 layout-border-color=00000000
 layout-text-color=c6d0f5
