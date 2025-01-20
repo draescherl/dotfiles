@@ -28,8 +28,8 @@ text-clear-color=f2d5cf
 text-caps-lock-color=ef9f76
 text-ver-color=8caaee
 text-wrong-color=ea999c
-#screenshot
-image=/home/lucas/Pictures/clever.png
+screenshot
+#image=/home/lucas/Pictures/clever.png
 clock
 indicator
 indicator-radius=100
