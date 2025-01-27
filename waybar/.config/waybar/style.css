@@ -1,0 +1,95 @@
+@import "frappe.css";
+
+* {
+	font-family: "JetBrainsMono Nerd Font";
+	font-size: 17px;
+}
+
+#waybar {
+	background: @crust;
+	color: @text;
+	margin: 5px 5px;
+}
+
+#workspaces {
+    background-color: @crust;
+	margin-right: 1rem;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    background-color: transparent;
+    color: @yellow;
+    border-radius: 0;
+}
+
+#workspaces button:hover {
+	background: transparent;
+	border-color: transparent;
+}
+
+#workspaces button.focused {
+    background-color: #665c54;
+}
+
+#workspaces button.urgent {
+    background-color: @red;
+}
+
+#cpu,
+#network,
+#clock,
+#tray,
+#pulseaudio,
+#idle_inhibitor 
+{
+	border-top-left-radius: 1rem;
+	border-bottom-left-radius: 1rem;
+	margin-left: 1rem;
+}
+
+#cpu,
+#memory,
+#temperature,
+#network,
+#clock,
+#tray,
+#pulseaudio,
+#battery,
+#idle_inhibitor,
+#bluetooth,
+#backlight,
+#custom-power
+{
+	background-color: @surface0;
+	padding: 0.5rem 1rem;
+	margin: 5px 0;
+}
+
+#temperature,
+#clock,
+#tray,
+#battery,
+#bluetooth,
+#custom-power 
+{
+	border-top-right-radius: 1rem;
+	border-bottom-right-radius: 1rem;
+	margin-right: 1rem;
+}
+
+#idle_inhibitor {
+	color: @green;
+}
+
+#custom-power {
+	color: @red;
+}
+
+#battery.charging {
+	color: @green;
+}
+
+#battery.warning:not(.charging) {
+	color: @red;
+}

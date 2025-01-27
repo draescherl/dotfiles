@@ -1,0 +1,146 @@
+{
+	"layer": "top",
+	"position": "top",
+	"modules-left": [
+		"sway/workspaces",
+		"cpu",
+		"memory",
+		"temperature",
+		"tray"
+	],
+	"modules-center": [
+		"clock"
+	],
+	"modules-right": [
+		"network",
+		"bluetooth",
+		"pulseaudio",
+		"backlight",
+		"battery",
+		"idle_inhibitor",
+		"custom/power"
+	],
+	"sway/workspaces": {
+		"disable-scroll": true,
+		"persistent-workspaces": {
+			"1": [],
+			"2": [],
+			"3": [],
+			"4": []
+		},
+		"format": "{icon}",
+		"format-icons": {
+			"1": "󰈹",
+			"2": "",
+			"3": "",
+			"4": "󰒱"
+		}
+	},
+	"clock": {
+		"format": "{:%a, %d %b, %R}",
+		"tooltip": false
+	},
+	"pulseaudio": {
+		"format": "{icon} {volume:2}%",
+		"format-bluetooth": "{icon} {volume:2}%",
+		"format-bluetooth-muted": "󰗿 {volume:2}%",
+		"format-muted": "󰖁 {volume:2}%",
+		"format-icons": {
+			"headphone": "",
+			"hands-free": "",
+			"headset": "󰋎",
+			"phone": "",
+			"portable": "",
+			"car": "",
+			"default": [
+				"",
+				"",
+				""
+			]
+		},
+		"on-click": "pavucontrol"
+	},
+	"cpu": {
+		"format": " {usage:2}%"
+	},
+	"memory": {
+		"format": " {used:2}G"
+	},
+	"disk": {
+		"format": " {specific_used:0.0f}G",
+		"unit": "GB",
+		"tooltip-format": "{specific_used:0.0f}G used out of {specific_total:0.0f}G on {path} ({percentage_used}%)"
+	},
+	"network": {
+		"interval": 1,
+		"format": "{icon}",
+		"format-alt": "{icon} {ipaddr}/{cidr}",
+		"format-icons": {
+			"wifi": [
+				"󰤟",
+				"󰤢",
+				"󰤥",
+				"󰤨"
+			],
+			"ethernet": "󰈀",
+			"disconnected": ""
+		},
+		"tooltip-format-wifi": "{essid}"
+	},
+	"bluetooth": {
+		"format-on": "󰂯",
+		"format-off": "󰂲",
+		"format-connected": "󰂱",
+		"tooltip-format-connected": "{device_enumerate}",
+		"tooltip-format-enumerate-connected": "{device_alias}",
+		"tooltip-format-enumerate-connected-battery": "{device_alias} (󰥉 {device_battery_percentage}%)"
+	},
+	"temperature": {
+		"critical-threshold": 80,
+		"format": "{icon} {temperatureC}°C",
+		"format-icons": [
+			"",
+			"",
+			""
+		]
+	},
+	"battery": {
+		"states": {
+			"warning": 30,
+			"critical": 15
+		},
+		"interval": 1,
+		"format": "{icon} {capacity}%",
+		"format-charging": "󰂄 {capacity}%",
+		"format-icons": [
+			"󰁺",
+			"󰁼",
+			"󰁾",
+			"󰂀",
+			"󰁹"
+		]
+	},
+	"backlight": {
+		"format": "{icon} {percent:2}%",
+		"format-icons": [
+			"",
+			"󰃟",
+			"󰃠"
+		]
+	},
+	"idle_inhibitor": {
+		"format": "{icon}",
+		"format-icons": {
+			"activated": "󰌾",
+			"deactivated": "󰿆"
+		}
+	},
+	"custom/power": {
+		"tooltip": false,
+		"on-click": "wlogout --margin 500 &",
+		"format": ""
+	},
+	"tray": {
+		"spacing": 5
+	}
+}
