@@ -1,7 +1,6 @@
 # path
 export PATH="$PATH:/home/$USER/.local/share/JetBrains/Toolbox/scripts"
 export PATH="$PATH:/home/$USER/.local/bin"
-export PATH=$PATH:/usr/local/go/bin
 
 # random env vars
 export ZSH_DIR="/home/$USER/.zsh"
