@@ -64,7 +64,9 @@
 		"format": " {usage:2}%"
 	},
 	"memory": {
-		"format": " {used:2}G"
+		"interval": 10,
+		"format": " {used:2.1f}G",
+		"tooltip": false
 	},
 	"disk": {
 		"format": " {specific_used:0.0f}G",
