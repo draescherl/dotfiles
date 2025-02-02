@@ -1,4 +1,4 @@
-@import "frappe.css";
+@import "mocha.css";
 
 * {
 	font-family: "JetBrainsMono Nerd Font";
@@ -6,21 +6,25 @@
 }
 
 #waybar {
-	background: @crust;
+	background: @transparent;
 	color: @text;
 	margin: 5px 5px;
 }
 
 #workspaces {
-    background-color: @crust;
+	border-radius: 1rem;
+	background-color: @surface0;
 	margin-right: 1rem;
+	margin-left: 0.5rem;
+	margin-top: 5px;
+	margin-bottom: 5px;
 }
 
 #workspaces button {
-    padding: 0 5px;
-    background-color: transparent;
-    color: @yellow;
-    border-radius: 0;
+	padding: 0 5px;
+	background-color: transparent;
+	color: @text;
+	border-radius: 0;
 }
 
 #workspaces button:hover {
@@ -29,11 +33,11 @@
 }
 
 #workspaces button.focused {
-    background-color: #665c54;
+	color: @peach;
 }
 
 #workspaces button.urgent {
-    background-color: @red;
+	background-color: @red;
 }
 
 #cpu,

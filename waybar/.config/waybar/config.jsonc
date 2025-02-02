@@ -122,7 +122,8 @@
 			"󰂀",
 			"󰁹"
 		],
-		"tooltip": false
+		"tooltip": true,
+		"tooltip-format": "Power draw: {power:2.1f}W"
 	},
 	"backlight": {
 		"format": "{icon} {percent:2}%",
