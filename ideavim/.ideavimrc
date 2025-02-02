@@ -16,9 +16,9 @@ set showcmd
 set visualbell
 set clipboard+=unnamed
 set incsearch
-set noignorecase
-"set ignorecase
-"set smartcase   " if any search character is uppercase then use case sensitive
+"set noignorecase
+set ignorecase
+set smartcase   " if any search character is uppercase then use case sensitive
 set hlsearch
 
 """ Plugins
@@ -54,8 +54,8 @@ map <leader>sm <Action>(MoveEditorToOppositeTabGroup)
 
 " Display options
 map <leader>dd <Action>(ToggleDistractionFreeMode)
-map <leader>dz <Action>(ToggleZenMode)
 map <leader>df <Action>(ToggleFullScreen)
+map <leader>dp <Action>(TogglePresentationMode)
 
 " Searching
 map <leader>sa <Action>(SearchEverywhere)
