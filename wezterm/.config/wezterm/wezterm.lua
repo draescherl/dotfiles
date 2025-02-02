@@ -100,6 +100,16 @@ config.keys = {
 	{ key = "u", mods = "ALT", action = wezterm.action.ScrollByLine(-1) },
 	{ key = "D", mods = "ALT", action = wezterm.action.ScrollByPage(1) },
 	{ key = "d", mods = "ALT", action = wezterm.action.ScrollByLine(1) },
+	-- {
+	-- 	key = "l",
+	-- 	mods = "CTRL",
+	-- 	action = wezterm.action_callback(function(_, pane)
+	-- 		local pos = pane:get_cursor_position()
+	-- 		local move_viewport_to_scrollback = string.rep("\r\n", pos.y)
+	-- 		pane:inject_output(move_viewport_to_scrollback)
+	-- 		pane:send_text("\x0c") -- CTRL-L
+	-- 	end),
+	-- },
 }
 
 wezterm.on("update-status", function(window)

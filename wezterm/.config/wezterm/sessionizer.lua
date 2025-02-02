@@ -35,20 +35,26 @@ function module.sessionize()
 		title = "Sessionizer",
 		choices = choices,
 		fuzzy = true,
-		action = wezterm.action_callback(function(child_window, child_pane, id, label)
-			if not label then
+		action = wezterm.action_callback(function(window, pane, session_name, directory)
+			if not directory then
 				wezterm.log_info("Cancelled")
 				return
 			end
 
-			local msg = string.format("Creating session [%s] in directory [%s]", id, label)
+			wezterm.GLOBAL.previous_workspace = window:active_workspace()
+			local msg = string.format(
+				"Creating session [%s] in directory [%s]. Previous workspace is now [%s].",
+				session_name,
+				directory,
+				wezterm.GLOBAL.previous_workspace
+			)
 			wezterm.log_info(msg)
-			child_window:perform_action(
+			window:perform_action(
 				wezterm.action.SwitchToWorkspace({
-					name = id,
-					spawn = { cwd = label },
+					name = session_name,
+					spawn = { cwd = directory },
 				}),
-				child_pane
+				pane
 			)
 		end),
 	})
