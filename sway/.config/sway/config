@@ -1,0 +1,44 @@
+# Read `man 5 sway` for a complete reference.
+
+# Themes
+include ./themes/catppuccin-frappe
+
+focus_wrapping no
+
+# Navigation
+set $mod Mod4
+set $left h
+set $down j
+set $up k
+set $right l
+
+# AZERTY number row
+set $one ampersand
+set $two eacute
+set $three quotedbl
+set $four apostrophe
+set $five parenleft
+set $six minus
+set $seven egrave
+set $eight underscore
+set $nine ccedilla
+set $ten agrave
+
+# Launcher
+# Note: pass the final command to swaymsg so that the resulting window can be opened
+# on the original workspace that the command was run on.
+set $menu tofi-drun --drun-launch=true
+#set $menu tofi-drun | xargs swaymsg exec --
+#set $menu dmenu_path | wmenu | xargs swaymsg exec --
+
+# Terminal
+set $term wezterm
+
+include ./bar.conf
+include ./input.conf
+include ./output.conf
+include ./idle.conf
+include ./keybinds/*
+include /etc/sway/config.d/*
+
+exec swaync
