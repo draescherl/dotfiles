@@ -1,12 +1,5 @@
-import = [
-	#"~/.config/alacritty/catppuccin-latte.toml"
-	#"~/.config/alacritty/catppuccin-frappe.toml"
-	#"~/.config/alacritty/catppuccin-macchiato.toml"
-	"~/.config/alacritty/catppuccin-mocha.toml"
-]
-
-#[shell]
-#program = "tmux"
+[general]
+import = ["catppuccin-mocha.toml"]
 
 [window]
 decorations = "None"
@@ -14,7 +7,7 @@ startup_mode = "Maximized"
 opacity = 0.9
 
 [font]
-normal = { family = "JetBrainsMono Nerd Font", style = "Bold" }
+normal = { family = "JetBrainsMono Nerd Font Mono", style = "Bold" }
 size = 13
 
 [cursor]
@@ -29,3 +22,7 @@ bindings = [
 	{ key = "ç",     mods = "Alt",           chars   = "\u001bç" },
 	{ key = "à",     mods = "Alt",           chars   = "\u001bà" }
 ]
+
+[terminal]
+shell = "/usr/bin/zsh"
+
