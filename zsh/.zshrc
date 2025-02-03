@@ -77,7 +77,7 @@ bindkey "^[[1;3D" backward-word
 # load plugins and tools
 source $ZSH_DIR/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $ZSH_DIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source <(fzf --zsh)
 eval "$(dircolors)"
 eval "$(starship init zsh)"
 eval "$(zoxide init --cmd cd zsh)"
