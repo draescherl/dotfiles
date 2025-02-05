@@ -33,11 +33,11 @@
 }
 
 #workspaces button.focused {
-	color: @peach;
+	color: @green;
 }
 
 #workspaces button.urgent {
-	background-color: @red;
+	color: @red;
 }
 
 #cpu,
