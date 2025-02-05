@@ -1,4 +1,3 @@
-datestr=%a, %d %b %Y
 color=303446
 bs-hl-color=f38ba8
 caps-lock-bs-hl-color=f2d5cf
@@ -28,12 +27,12 @@ text-clear-color=f2d5cf
 text-caps-lock-color=ef9f76
 text-ver-color=8caaee
 text-wrong-color=ea999c
-screenshot
-#image=/home/lucas/Pictures/clever.png
+#screenshot
+image=/home/lucas/Pictures/clever.png
 clock
+datestr=%a, %d %b %Y
 indicator
 indicator-radius=100
 indicator-thickness=7
 effect-blur=10x10
 effect-vignette=0.5:0.5
-fade-in=0.1
