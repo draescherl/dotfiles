@@ -42,3 +42,4 @@ include ./keybinds/*
 include /etc/sway/config.d/*
 
 exec swaync
+exec_always nm-applet --indicator
