@@ -88,9 +88,9 @@ config.keys = {
 	-- other stuff
 	{ key = "C", mods = "CTRL", action = wezterm.action.CopyTo("Clipboard") },
 	{ key = "V", mods = "CTRL", action = wezterm.action.PasteFrom("Clipboard") },
-	{ key = "-", mods = "ALT", action = wezterm.action.DecreaseFontSize },
+	{ key = ")", mods = "ALT", action = wezterm.action.DecreaseFontSize },
 	{ key = "=", mods = "ALT", action = wezterm.action.IncreaseFontSize },
-	{ key = "0", mods = "ALT", action = wezterm.action.ResetFontSize },
+	{ key = "=", mods = "CTRL", action = wezterm.action.ResetFontSize },
 	{ key = "q", mods = "ALT", action = wezterm.action.QuitApplication },
 	{ key = "L", mods = "ALT", action = wezterm.action.ShowDebugOverlay },
 	{ key = "f", mods = "ALT", action = sessionizer.sessionize() },
