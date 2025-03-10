@@ -27,3 +27,5 @@
 	process = git-lfs filter-process
 [includeIf "gitdir:~/Documents/pro/"]
 	path = ./config-pro
+[pager]
+	branch = false
