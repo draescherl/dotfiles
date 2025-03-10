@@ -94,7 +94,7 @@ config.keys = {
 	{ key = "=", mods = "ALT", action = wezterm.action.IncreaseFontSize },
 	{ key = "=", mods = "CTRL", action = wezterm.action.ResetFontSize },
 	{ key = "q", mods = "ALT", action = wezterm.action.QuitApplication },
-	{ key = "L", mods = "ALT", action = wezterm.action.ShowDebugOverlay },
+	{ key = "O", mods = "ALT", action = wezterm.action.ShowDebugOverlay },
 	{ key = "f", mods = "ALT", action = sessionizer.sessionize() },
 	{ key = "p", mods = "ALT", action = wezterm.action.ActivateCommandPalette },
 	{ key = "w", mods = "ALT", action = wezterm.action.ShowLauncherArgs({ flags = "FUZZY|WORKSPACES" }) },
