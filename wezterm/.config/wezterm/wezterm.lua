@@ -20,6 +20,8 @@ config.window_padding = {
 	right = 0,
 	bottom = 0,
 }
+config.scrollback_lines = 100000
+config.enable_scroll_bar = true
 
 local function activate_tab(key, index)
 	return {
