@@ -106,7 +106,7 @@ config.keys = {
 
 wezterm.on("update-status", function(window)
 	local color_scheme = window:effective_config().resolved_palette
-	local bg = color_scheme.brights[5]
+	local bg = color_scheme.brights[3]
 	local fg = color_scheme.background
 
 	window:set_left_status(wezterm.format({
