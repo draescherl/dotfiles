@@ -43,7 +43,7 @@
 #cpu,
 #network,
 #clock,
-#tray,
+#custom-notification,
 #pulseaudio,
 #idle_inhibitor 
 {
@@ -57,6 +57,7 @@
 #temperature,
 #network,
 #clock,
+#custom-notification,
 #tray,
 #pulseaudio,
 #battery,
