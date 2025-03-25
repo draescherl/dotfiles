@@ -103,6 +103,7 @@ config.keys = {
 	{ key = "D", mods = "ALT", action = wezterm.action.ScrollByPage(1) },
 	{ key = "d", mods = "ALT", action = wezterm.action.ScrollByLine(1) },
 	{ key = "s", mods = "ALT", action = wezterm.action.Search({ CaseInSensitiveString = "" }) },
+	{ key = "c", mods = "ALT", action = wezterm.action.ActivateCopyMode },
 }
 
 wezterm.on("update-status", function(window)
