@@ -42,4 +42,6 @@ include ./keybinds/*
 include /etc/sway/config.d/*
 
 exec swaync
+exec wl-paste --type text --watch cliphist store
+exec wl-paste --type image --watch cliphist store
 exec_always nm-applet --indicator
