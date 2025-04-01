@@ -63,10 +63,12 @@
 		"tooltip": false
 	},
 	"pulseaudio": {
-		"format": "{icon} {volume:2}%",
-		"format-bluetooth": "{icon} {volume:2}%",
-		"format-bluetooth-muted": "󰗿 {volume:2}%",
-		"format-muted": "󰖁 {volume:2}%",
+		"format": "{icon} {volume:2}% {format_source}",
+		"format-muted": "󰖁 {volume:2}% {format_source}",
+		"format-bluetooth": "{icon} {volume:2}% {format_source}",
+		"format-bluetooth-muted": "󰗿 {volume:2}% {format_source}",
+		"format-source": " {volume:2}%",
+		"format-source-muted": " {volume:2}%",
 		"format-icons": {
 			"headphone": "",
 			"hands-free": "",
@@ -80,7 +82,8 @@
 				""
 			]
 		},
-		"on-click": "pavucontrol"
+		"on-click-right": "pavucontrol -t 4",
+		"on-click": "pavucontrol -t 3"
 	},
 	"cpu": {
 		"format": " {usage:2}%"
