@@ -1,3 +1,3 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-/usr/bin/stow -v -D */
+stow -v -D */
