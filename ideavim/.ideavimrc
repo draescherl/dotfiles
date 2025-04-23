@@ -38,7 +38,7 @@ nmap <leader>vv <Action>(IdeaVim.ReloadVimRc.reload)
 map <leader>: <Action>(CommentByLineComment)
 map <leader>x :NERDTreeToggle<CR>
 map <leader>am <Action>(ShowIntentionActions)
-map <leader>ns <Action>(NewScratchFile)
+map <leader>sp <Action>(NewScratchFile)
 map <leader>jd <Action>(QuickJavaDoc)
 
 " Tabs
