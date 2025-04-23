@@ -11,7 +11,6 @@ function module.sessionize()
 		home .. "/dotfiles",
 		home .. "/Documents/pro",
 		home .. "/Documents/perso",
-		home .. "/Documents/oss",
 		"--min-depth",
 		"1",
 		"--max-depth",
