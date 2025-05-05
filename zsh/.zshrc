@@ -1,6 +1,7 @@
 # path
 export PATH="$PATH:/home/$USER/.local/share/JetBrains/Toolbox/scripts"
 export PATH="$PATH:/home/$USER/.local/bin"
+export PATH="$PATH:/home/$USER/.local/share/coursier/bin"
 
 # random env vars
 export SSH_AUTH_SOCK="$HOME/.bitwarden-ssh-agent.sock"
