@@ -3,7 +3,8 @@ export PATH="$PATH:/home/$USER/.local/share/JetBrains/Toolbox/scripts"
 export PATH="$PATH:/home/$USER/.local/bin"
 
 # random env vars
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+export SSH_AUTH_SOCK="$HOME/.bitwarden-ssh-agent.sock"
+#export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export ZSH_DIR="/home/$USER/.zsh"
 export EDITOR=nvim
 export VISUAL=nvim
