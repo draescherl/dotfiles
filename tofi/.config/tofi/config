@@ -1,6 +1,5 @@
 text-cursor = true
-matching-algorithm = fuzzy
-drun-launch = true
+matching-algorithm = normal
 
 # STYLE OPTIONS
 font = JetBrainsMono Nerd Font
