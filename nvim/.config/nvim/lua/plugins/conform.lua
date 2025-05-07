@@ -36,6 +36,7 @@ return { -- Autoformat
 			python = { "isort", "autopep8" },
 			rust = { "rustfmt" },
 			scala = { "scalafmt" },
+			sh = { "shellcheck" },
 		},
 	},
 }
