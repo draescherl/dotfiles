@@ -36,8 +36,6 @@ return { -- Autoformat
 			python = { "isort", "autopep8" },
 			rust = { "rustfmt" },
 			scala = { "scalafmt" },
-			sql = { "pg_format" },
-			toml = { "taplo" },
 		},
 	},
 }
