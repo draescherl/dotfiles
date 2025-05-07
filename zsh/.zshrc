@@ -4,7 +4,8 @@ export PATH="$PATH:/home/$USER/.local/bin"
 export PATH="$PATH:/home/$USER/.local/share/coursier/bin"
 
 # random env vars
-export SSH_AUTH_SOCK="$HOME/.bitwarden-ssh-agent.sock"
+export SSH_AUTH_SOCK="$HOME/.var/app/com.bitwarden.desktop/data/.bitwarden-ssh-agent.sock"
+#export SSH_AUTH_SOCK="$HOME/.bitwarden-ssh-agent.sock"
 #export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export ZSH_DIR="/home/$USER/.zsh"
 export EDITOR=nvim
