@@ -1,7 +1,7 @@
 local wezterm = require("wezterm")
 local module = {}
 
-local fd = "/usr/bin/fd"
+local fd = "fd"
 function module.sessionize()
 	local choices = {}
 	local home = os.getenv("HOME")
