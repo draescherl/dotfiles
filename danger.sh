@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 fd --type d --hidden --glob '.git' -E '.cache' -E '.local' -E 'JetBrains' -E '.cargo' "$HOME" | while read gitdir; do
     repo_root=$(dirname "$gitdir")
