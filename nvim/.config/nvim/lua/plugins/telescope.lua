@@ -12,6 +12,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
 		},
 		{ "nvim-telescope/telescope-ui-select.nvim" },
 		{ "nvim-tree/nvim-web-devicons", enabled = true },
+		"debugloop/telescope-undo.nvim",
 	},
 	config = function()
 		-- Two important keymaps to use while in Telescope are:
@@ -34,6 +35,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
 				},
 			},
 			extensions = {
+				undo = {},
 				["ui-select"] = {
 					require("telescope.themes").get_dropdown(),
 				},
@@ -43,6 +45,9 @@ return { -- Fuzzy Finder (files, lsp, etc)
 		-- Enable Telescope extensions if they are installed
 		pcall(require("telescope").load_extension, "fzf")
 		pcall(require("telescope").load_extension, "ui-select")
+		pcall(require("telescope").load_extension, "undo")
+
+		vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<cr>")
 
 		-- See `:help telescope.builtin`
 		local builtin = require("telescope.builtin")
