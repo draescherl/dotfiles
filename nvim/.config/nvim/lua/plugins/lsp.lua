@@ -18,7 +18,7 @@ return {
 
 				map("<leader>h", vim.lsp.buf.hover)
 				map("rn", vim.lsp.buf.rename)
-				map("<leader>qf", vim.lsp.buf.code_action, { "n", "x" }) -- quick fix
+				map("gca", vim.lsp.buf.code_action, { "n", "x" }) -- quick fix
 				map("gr", require("telescope.builtin").lsp_references)
 				map("gi", require("telescope.builtin").lsp_implementations)
 				map("gd", require("telescope.builtin").lsp_definitions) --  To jump back, press <C-t>.
