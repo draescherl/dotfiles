@@ -9,8 +9,8 @@ return { -- Autocompletion
 	--- @type blink.cmp.Config
 	opts = {
 		keymap = {
-			preset = "super-tab",
 			-- :h blink-cmp-config-keymap
+			preset = "default",
 		},
 		appearance = {
 			nerd_font_variant = "mono",
