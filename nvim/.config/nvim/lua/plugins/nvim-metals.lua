@@ -6,9 +6,6 @@ return {
 	ft = { "scala", "sbt", "java" },
 	opts = function()
 		local metals_config = require("metals").bare_config()
-		metals_config.on_attach = function(client, bufnr)
-			-- your on_attach function
-		end
 		metals_config.init_options.statusBarProvider = "off"
 		return metals_config
 	end,
@@ -21,5 +18,15 @@ return {
 			end,
 			group = nvim_metals_group,
 		})
+
+		vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+			pattern = { "*.worksheet.sc" },
+			callback = function()
+				vim.lsp.inlay_hint.enable(true)
+			end,
+			group = nvim_metals_group,
+		})
+
+		vim.keymap.set("n", "<leader>m", require("telescope").extensions.metals.commands)
 	end,
 }
