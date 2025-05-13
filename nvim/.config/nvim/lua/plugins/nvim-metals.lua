@@ -6,6 +6,9 @@ return {
 	ft = { "scala", "sbt", "java" },
 	opts = function()
 		local metals_config = require("metals").bare_config()
+		metals_config.settings = {
+			javaHome = "/usr/lib/jvm/temurin-11-jdk",
+		}
 		metals_config.init_options.statusBarProvider = "off"
 		return metals_config
 	end,
