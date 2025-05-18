@@ -4,6 +4,7 @@ return {
 	dependencies = {
 		{ "williamboman/mason.nvim", opts = {} },
 		"williamboman/mason-lspconfig.nvim",
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
 		{ "j-hui/fidget.nvim", opts = {} },
 		"saghen/blink.cmp",
 	},
@@ -143,6 +144,9 @@ return {
 				},
 			},
 		}
+
+		local ensure_installed = vim.tbl_keys(servers or {})
+		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
 		require("mason-lspconfig").setup({
 			ensure_installed = {},
