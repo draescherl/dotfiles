@@ -28,7 +28,8 @@ text-caps-lock-color=ef9f76
 text-ver-color=8caaee
 text-wrong-color=ea999c
 #screenshot
-image=/home/lucas/Pictures/aurrel-creep-bg.jpg
+#image=/home/lucas/Pictures/aurrel-creep-bg.jpg
+image=/home/lucas/Pictures/clever.jpg
 clock
 datestr=%a, %d %b %Y
 indicator
