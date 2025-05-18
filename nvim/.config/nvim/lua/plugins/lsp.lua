@@ -130,6 +130,9 @@ return {
 		--  - settings (table): Override the default settings passed when initializing the server.
 		-- See `:help lspconfig-all` for a list of all the pre-configured LSPs
 		local servers = {
+			bashls = {
+				filetypes = { "sh", "bash" },
+			},
 			pyright = {},
 			rust_analyzer = {},
 			lua_ls = {
