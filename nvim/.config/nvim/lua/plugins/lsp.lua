@@ -18,7 +18,7 @@ return {
 				end
 
 				map("<leader>h", vim.lsp.buf.hover)
-				map("rn", vim.lsp.buf.rename)
+				map("<leader>rn", vim.lsp.buf.rename)
 				map("gca", vim.lsp.buf.code_action, { "n", "x" }) -- quick fix
 				map("gr", require("telescope.builtin").lsp_references)
 				map("gi", require("telescope.builtin").lsp_implementations)
