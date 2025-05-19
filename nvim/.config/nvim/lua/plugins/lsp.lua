@@ -135,6 +135,7 @@ return {
 			},
 			pyright = {},
 			rust_analyzer = {},
+			postgres_lsp = {},
 			lua_ls = {
 				settings = {
 					Lua = {
