@@ -2,6 +2,7 @@ fish_add_path --path "/home/$USER/.local/share/JetBrains/Toolbox/scripts"
 fish_add_path --path "/home/$USER/.local/bin"
 fish_add_path --path "/home/$USER/.local/share/coursier/bin"
 fish_add_path --path "/home/$USER/.cargo/bin"
+fish_add_path --path "/home/$USER/bin"
 
 set fish_greeting # disable greeting message
 
