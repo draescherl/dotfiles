@@ -134,6 +134,9 @@ return {
 				filetypes = { "sh", "bash" },
 			},
 			pyright = {},
+			ruby_lsp = {
+				filetypes = { "rb", "ruby" },
+			},
 			rust_analyzer = {},
 			postgres_lsp = {},
 			lua_ls = {
