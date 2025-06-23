@@ -44,6 +44,7 @@ abbr lt 'ls -TL'
 abbr n 'nvim'
 abbr untar 'tar -xvzf'
 abbr vim 'nvim'
+abbr iba 'ip -brief -4 a'
 
 direnv hook fish | source
 fzf --fish | source
