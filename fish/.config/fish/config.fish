@@ -17,7 +17,6 @@ bind \cv accept-autosuggestion
 
 alias aws='docker run --rm -it -v ~/.aws:/root/.aws amazon/aws-cli'
 alias cat='bat'
-alias ccssh="ssh BASTION"
 alias grep='grep --color=auto'
 alias ls='eza --icons=always --group-directories-first --sort name -1'
 alias rm='rm -i'
@@ -45,22 +44,6 @@ abbr lt 'ls -TL'
 abbr n 'nvim'
 abbr untar 'tar -xvzf'
 abbr vim 'nvim'
-
-function cleverssh
-    ssh -t bastion -- "source /data/bastion/.bashrc; $argv" 
-end
-
-function vmssh
-    cleverssh instanceSSH $argv
-end
-
-function hvssh
-    cleverssh ssh $argv
-end
-
-function idssh
-    cleverssh sshToFirstAppInstances $argv
-end
 
 direnv hook fish | source
 fzf --fish | source
