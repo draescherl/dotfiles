@@ -23,7 +23,6 @@ set hlsearch
 
 """ Plugins
 Plug 'machakann/vim-highlightedyank'
-Plug 'preservim/nerdtree'
 Plug 'tpope/vim-surround'
 
 """ Vim key binds
@@ -33,13 +32,12 @@ nnoremap <A-p> <Action>(PreviousTab)
 nnoremap <A-n> <Action>(NextTab)
 
 """ Random utilities
-nnoremap <leader>h :set invhlsearch<CR>
+nnoremap <Esc> :set invhlsearch<CR>
 nmap <leader>vv <Action>(IdeaVim.ReloadVimRc.reload)
 map <leader>: <Action>(CommentByLineComment)
-map <leader>x :NERDTreeToggle<CR>
-map <leader>am <Action>(ShowIntentionActions)
+map <leader>ca <Action>(ShowIntentionActions)
 map <leader>sp <Action>(NewScratchFile)
-map <leader>jd <Action>(QuickJavaDoc)
+map <leader>h <Action>(QuickJavaDoc)
 
 " Tabs
 map <leader>t <Action>(ActivateTerminalToolWindow)
@@ -59,26 +57,19 @@ map <leader>df <Action>(ToggleFullScreen)
 map <leader>dp <Action>(TogglePresentationMode)
 
 " Searching
-map <leader>sa <Action>(SearchEverywhere)
 map <leader>sf <Action>(GotoFile)
-map <leader>sr <Action>(RecentFiles)
-map <leader>si <Action>(FindInPath)
+map <leader>sg <Action>(FindInPath)
 map <leader>sl <Action>(RecentLocations)
 
 " Refactoring
-map <leader>rr <Action>(RenameElement)
+map <leader>rn <Action>(RenameElement)
 map <leader>ri <Action>(ReformatCode)
-map <leader>rm <Action>(ExtractMethod)
-map <leader>rv <Action>(IntroduceVariable)
-map <leader>rf <Action>(IntroduceField)
-map <leader>rs <Action>(ChangeSignature)
 map <leader>rp <Action>(Refactorings.QuickListPopupAction)
 
 " Go to code
-nmap <leader>gd <Action>(GotoDeclaration)
+nmap <leader>gD <Action>(GotoDeclaration)
 nmap <leader>gy <Action>(GotoTypeDeclaration)
 nmap <leader>gi <Action>(GotoImplementation)
-nmap <leader>gu <Action>(ShowUsages)
-nmap <leader>gt <Action>(GotoTest)
-nmap <leader>gf <Action>(Back)
-nmap <leader>gb <Action>(Forward)
+nmap <leader>gr <Action>(ShowUsages)
+nmap <leader>gr <Action>(ShowUsages)
+nmap C-t <Action>(Back)
