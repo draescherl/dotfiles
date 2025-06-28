@@ -1,0 +1,30 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+  PACKAGES: [
+    "bat",
+    "btop",
+    "fish",
+    "git",
+    "ideavim",
+    "nvim",
+    "starship",
+    "sway",
+    "swaylock",
+    "swaync",
+    "tofi",
+    "waybar",
+    "wezterm",
+    "wlogout"
+  ]
+
+tasks:
+  default:
+    cmds:
+      - stow --verbose {{.PACKAGES | join " "}}
+
+  clean:
+    cmds:
+      - stow --verbose --delete {{.PACKAGES | join " "}}
