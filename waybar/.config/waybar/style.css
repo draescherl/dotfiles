@@ -45,7 +45,8 @@
 #clock,
 #custom-notification,
 #pulseaudio,
-#idle_inhibitor 
+#backlight,
+#idle_inhibitor
 {
 	border-top-left-radius: 1rem;
 	border-bottom-left-radius: 1rem;
@@ -76,7 +77,8 @@
 #tray,
 #battery,
 #bluetooth,
-#custom-power 
+#pulseaudio,
+#custom-power
 {
 	border-top-right-radius: 1rem;
 	border-bottom-right-radius: 1rem;
