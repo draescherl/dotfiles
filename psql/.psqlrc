@@ -1,8 +1,10 @@
 \set COMP_KEYWORD_CASE upper
-\pset null '(null)'
-
 \set PROMPT1 '%[%033[33m%]%n%[%033[0m%] -> %[%033[33m%]%/%[%033[0m%] %R%x%# '
 \set PROMPT2 '%w'
 \set HISTCONTROL ignoreboth
 
+\setenv PSQL_PAGER 'pspg -X -b'
+\setenv PSQL_WATCH_PAGER 'pspg -X -b --stream'
+
 \timing on
+\pset null '(null)'

@@ -11,7 +11,6 @@ export EDITOR=nvim
 export VISUAL=nvim
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 export NVM_DIR="$HOME/.nvm"
-export PSQL_PAGER='pspg -X -b'
 
 # Loading nvm causes significant shell startup delay. Uncomment to use nvm.
 #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
