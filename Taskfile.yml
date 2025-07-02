@@ -9,6 +9,7 @@ vars:
     "fish",
     "git",
     "ideavim",
+    "nushell",
     "nvim",
     "starship",
     "sway",
