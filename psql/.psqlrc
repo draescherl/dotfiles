@@ -1,5 +1,5 @@
 \set COMP_KEYWORD_CASE upper
-\set PROMPT1 '%[%033[33m%]%n%[%033[0m%] -> %[%033[33m%]%/%[%033[0m%] %R%x%# '
+\set PROMPT1 '%[%033[33m%]%n%[%033[0m%] on %[%033[33m%]%/%[%033[0m%] %R%x%# '
 \set PROMPT2 '%w'
 \set HISTCONTROL ignoreboth
 
