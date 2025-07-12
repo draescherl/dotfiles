@@ -3,5 +3,6 @@
 .bsp/
 .cache/
 .idea/
+.direnv/
 .envrc
 result
