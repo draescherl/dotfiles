@@ -47,5 +47,5 @@ exec swaync
 exec wl-paste --type text --watch cliphist store
 exec wl-paste --type image --watch cliphist store
 exec dbus-update-activation-environment --systemd --all
-exec_always nm-applet --indicator
-exec_always wlsunset -t 3000 -s 20:00 -S 9:00
+exec nm-applet --indicator
+exec wlsunset -t 3000 -s 20:00 -S 9:00
