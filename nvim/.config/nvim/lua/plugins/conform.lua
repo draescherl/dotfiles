@@ -33,6 +33,7 @@ return { -- Autoformat
 			bash = { "shellcheck" },
 			json = { "jq" },
 			lua = { "stylua" },
+			nix = { "nixfmt" },
 			python = { "isort", "autopep8" },
 			rust = { "rustfmt" },
 			scala = { "scalafmt" },
