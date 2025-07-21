@@ -92,7 +92,21 @@ return {
 
 		-- See `:help lspconfig-all` for a list of all the pre-configured LSPs
 		local servers = {
-			nixd = {},
+			nixd = {
+				settings = {
+					nixpkgs = {
+						expr = "import <nixpkgs> { }",
+					},
+					formatting = {
+						command = { "nixfmt" },
+					},
+					options = {
+						nixos = {
+							expr = '(builtins.getFlake ("/home/lucas/nixconfig/")).nixosConfigurations.desktop.options',
+						},
+					},
+				},
+			},
 			bashls = {
 				filetypes = { "sh", "bash" },
 			},
