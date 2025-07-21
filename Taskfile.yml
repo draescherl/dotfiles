@@ -6,6 +6,7 @@ vars:
   PACKAGES: [
     "bat",
     "btop",
+    "direnv",
     "fish",
     "git",
     "ideavim",
