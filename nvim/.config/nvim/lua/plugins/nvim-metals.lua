@@ -7,7 +7,7 @@ return {
 	opts = function()
 		local metals_config = require("metals").bare_config()
 		metals_config.settings = {
-			javaHome = "/usr/lib/jvm/temurin-11-jdk",
+			useGlobalExecutable = true
 		}
 		metals_config.init_options.statusBarProvider = "off"
 		return metals_config
