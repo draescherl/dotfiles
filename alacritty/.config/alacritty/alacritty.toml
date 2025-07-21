@@ -23,6 +23,3 @@ bindings = [
 	{ key = "à",     mods = "Alt",           chars   = "\u001bà" }
 ]
 
-[terminal]
-shell = "/usr/bin/zsh"
-
