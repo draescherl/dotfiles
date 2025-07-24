@@ -3,8 +3,8 @@
 \set PROMPT2 '%w'
 \set HISTCONTROL ignoreboth
 
-\setenv PSQL_PAGER 'pspg -X -b'
-\setenv PSQL_WATCH_PAGER 'pspg -X -b --stream'
+\setenv PSQL_PAGER 'pspg -X -b --style=16'
+\setenv PSQL_WATCH_PAGER 'pspg -X -b --style=16 --stream'
 
 \timing on
 \pset null '(null)'
