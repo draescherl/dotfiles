@@ -2,8 +2,6 @@
 import = ["catppuccin-mocha.toml"]
 
 [window]
-decorations = "None"
-startup_mode = "Maximized"
 opacity = 0.9
 
 [font]
