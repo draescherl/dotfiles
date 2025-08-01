@@ -46,6 +46,7 @@ for_window [class="Bitwarden"] floating enable
 for_window [app_id="Bitwarden"] floating enable
 seat seat0 xcursor_theme Adwaita 24
 
+exec_always swaybg --image ~/wallpapers/current --mode fill
 exec swaync
 exec wl-paste --type text --watch cliphist store
 exec wl-paste --type image --watch cliphist store
