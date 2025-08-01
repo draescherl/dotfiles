@@ -32,3 +32,7 @@ tasks:
   clean:
     cmds:
       - stow --verbose --delete {{.PACKAGES | join " "}}
+
+  purge:
+    cmds:
+      - stow --verbose --delete */
