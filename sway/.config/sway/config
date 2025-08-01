@@ -41,7 +41,9 @@ include ./idle.conf
 include ./keybinds.conf
 include /etc/sway/config.d/*
 
+# swaymsg -t get_tree
 for_window [class="Bitwarden"] floating enable
+for_window [app_id="Bitwarden"] floating enable
 seat seat0 xcursor_theme Adwaita 24
 
 exec swaync
