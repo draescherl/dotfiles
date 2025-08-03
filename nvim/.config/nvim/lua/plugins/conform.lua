@@ -32,6 +32,7 @@ return { -- Autoformat
 		formatters_by_ft = {
 			bash = { "shellcheck" },
 			json = { "jq" },
+			jsonc = { "jq" },
 			lua = { "stylua" },
 			nix = { "nixfmt" },
 			python = { "isort", "autopep8" },
