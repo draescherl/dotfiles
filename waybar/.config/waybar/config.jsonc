@@ -3,10 +3,6 @@
 	"position": "top",
 	"modules-left": [
 		"sway/workspaces",
-		"cpu",
-		"memory",
-		"temperature",
-		"custom/notification",
 		"tray",
 	],
 	"modules-center": [
@@ -15,6 +11,9 @@
 	"modules-right": [
 		"network",
 		"bluetooth",
+		"cpu",
+		"memory",
+		"temperature",
 		"pulseaudio",
 		"backlight",
 		"battery",
@@ -29,34 +28,6 @@
 			"3": [],
 			"4": []
 		},
-		"format": "{icon}",
-		"format-icons": {
-			"1": "󰈹",
-			"2": "",
-			"3": "",
-			"4": "󰒱"
-		}
-	},
-	"custom/notification": {
-		"tooltip": false,
-		"format": "{} {icon}",
-		"format-icons": {
-			"notification": "<span foreground='red'><sup></sup></span>",
-			"none": "",
-			"dnd-notification": "<span foreground='red'><sup></sup></span>",
-			"dnd-none": "",
-			"inhibited-notification": "<span foreground='red'><sup></sup></span>",
-			"inhibited-none": "",
-			"dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
-			"dnd-inhibited-none": ""
-		},
-		"return-type": "json",
-		"exec-if": "which swaync-client",
-		"exec": "swaync-client -swb",
-		"on-click": "swaync-client -t -sw",
-		"on-click-middle": "swaync-client -C -sw",
-		"on-click-right": "swaync-client -d -sw",
-		"escape": true
 	},
 	"clock": {
 		"format": "{:%a, %d %b, %R}",
@@ -70,12 +41,6 @@
 		"format-source": " {volume:2}%",
 		"format-source-muted": " {volume:2}%",
 		"format-icons": {
-			"headphone": "",
-			"hands-free": "",
-			"headset": "󰋎",
-			"phone": "",
-			"portable": "",
-			"car": "",
 			"default": [
 				"",
 				"",
@@ -90,18 +55,12 @@
 	},
 	"memory": {
 		"interval": 10,
-		"format": " {used:2.1f}G",
+		"format": " {used:2.1f}G",
 		"tooltip": false
-	},
-	"disk": {
-		"format": " {specific_used:0.0f}G",
-		"unit": "GB",
-		"tooltip-format": "{specific_used:0.0f}G used out of {specific_total:0.0f}G on {path} ({percentage_used}%)"
 	},
 	"network": {
 		"interval": 1,
-		"format": "{icon}",
-		"format-alt": "{icon} {ipaddr}/{cidr}",
+		"format": "{icon} {ipaddr}/{cidr}",
 		"format-icons": {
 			"wifi": [
 				"󰤟",

@@ -3,86 +3,43 @@
 * {
 	font-family: "JetBrainsMono Nerd Font";
 	font-size: 17px;
+	font-weight: 800;
 }
 
 #waybar {
-	background: @transparent;
+	background-color: @background;
 	color: @text;
-	margin: 5px 5px;
+	border-bottom: 1px solid @surface0;
 }
 
 #workspaces {
-	border-radius: 1rem;
-	background-color: @surface0;
-	margin-right: 1rem;
 	margin-left: 0.5rem;
-	margin-top: 5px;
-	margin-bottom: 5px;
+	background-color: transparent;
 }
 
 #workspaces button {
-	padding: 0 5px;
-	background-color: transparent;
+	padding: 0 2px;
 	color: @text;
-	border-radius: 0;
-}
-
-#workspaces button:hover {
-	background: transparent;
-	border-color: transparent;
-}
-
-#workspaces button.focused {
-	color: @green;
+	border-radius: 0.5rem;
 }
 
 #workspaces button.urgent {
 	color: @red;
 }
 
-#cpu,
-#network,
-#clock,
-#custom-notification,
-#pulseaudio,
-#backlight,
-#idle_inhibitor
-{
-	border-top-left-radius: 1rem;
-	border-bottom-left-radius: 1rem;
-	margin-left: 1rem;
+#workspaces button:hover {
+	background: @surface0;
+	border: 12px;
+	transition: none;
+	box-shadow: none;
 }
 
-#cpu,
-#memory,
-#temperature,
-#network,
-#clock,
-#custom-notification,
-#tray,
-#pulseaudio,
-#battery,
-#idle_inhibitor,
-#bluetooth,
-#backlight,
-#custom-power
-{
-	background-color: @surface0;
-	padding: 0.5rem 1rem;
-	margin: 5px 0;
+#workspaces button.focused {
+	color: @pink;
 }
 
-#temperature,
-#clock,
-#tray,
-#battery,
-#bluetooth,
-#pulseaudio,
-#custom-power
-{
-	border-top-right-radius: 1rem;
-	border-bottom-right-radius: 1rem;
-	margin-right: 1rem;
+#tray {
+	margin-left: 15px;
 }
 
 #idle_inhibitor {
@@ -91,6 +48,7 @@
 
 #custom-power {
 	color: @red;
+	margin-right: 0.5rem;
 }
 
 #battery.charging {
@@ -100,3 +58,8 @@
 #battery.warning:not(.charging) {
 	color: @red;
 }
+
+label.module {
+	padding: 0 10px 0 10px;
+}
+
