@@ -111,6 +111,7 @@ return {
 				filetypes = { "sh", "bash" },
 			},
 			pyright = {},
+			rubocop = {},
 			ruby_lsp = {
 				filetypes = { "rb", "ruby" },
 			},
