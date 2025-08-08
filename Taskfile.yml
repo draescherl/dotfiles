@@ -6,7 +6,6 @@ vars:
   PACKAGES: [
     "alacritty",
     "bat",
-    "btop",
     "direnv",
     "fish",
     "git",
