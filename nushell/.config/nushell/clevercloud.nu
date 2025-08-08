@@ -29,7 +29,7 @@ def id2psql [id: string] {
     psql $"dbname=($dbname) host=($host) password=($password) port=($port) user=($user)"
 }
 
-def ccpg [name: string@addon_names] {
+export def ccpg [name: string@addon_names] {
     id2psql (addon_mappings | get $name)
 }
 

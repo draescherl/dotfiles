@@ -1,4 +1,5 @@
-source ./clevercloud.nu
+use ./clevercloud.nu *
+
 source ./catppuccin_mocha.nu
 $env.config.show_banner = false
 
