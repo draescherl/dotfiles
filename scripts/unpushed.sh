@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Git Repository Push Status Checker
 # This script finds all git repositories and checks if they have unpushed commits
