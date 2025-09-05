@@ -25,11 +25,7 @@ set $nine ccedilla
 set $ten agrave
 
 # Launcher
-# Note: pass the final command to swaymsg so that the resulting window can be opened
-# on the original workspace that the command was run on.
-set $menu tofi-drun --drun-launch=true
-#set $menu tofi-drun | xargs swaymsg exec --
-#set $menu dmenu_path | wmenu | xargs swaymsg exec --
+set $menu fuzzel
 
 # Terminal
 set $term wezterm
