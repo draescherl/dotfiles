@@ -3,36 +3,52 @@
 version: '3'
 
 vars:
-  PACKAGES: [
-    "alacritty",
-    "bat",
-    "direnv",
-    "fish",
-    "fuzzel",
-    "git",
-    "ideavim",
-    "nushell",
-    "nvim",
-    "psql",
-    "starship",
-    "sway",
-    "swaylock",
-    "swaync",
-    "wallpapers",
-    "waybar",
-    "wezterm",
-    "wlogout"
-  ]
+  DESKTOP:
+    - alacritty
+    - fuzzel
+    - sway
+    - swaylock
+    - swaync
+    - wallpapers
+    - waybar
+    - wezterm
+    - wlogout
+  TOOLS:
+    - bat
+    - direnv
+    - fish
+    - git
+    - ideavim
+    - nushell
+    - nvim
+    - psql
+    - starship
 
 tasks:
   default:
+    desc: Install desktop and tools.
+    deps:
+      - tools
+      - desktop
+
+  tools:
+    desc: Install only tools.
     cmds:
-      - stow --verbose {{.PACKAGES | join " "}}
+      - stow --verbose {{.TOOLS | join " "}}
+
+  desktop:
+    desc: Install only desktop.
+    cmds:
+      - stow --verbose {{.DESKTOP | join " "}}
 
   clean:
+    desc: Remove desktop and tools.
+    vars:
+      ALL: '{{.DESKTOP | join " "}} {{.TOOLS | join " "}} '
     cmds:
-      - stow --verbose --delete {{.PACKAGES | join " "}}
+      - stow --verbose --delete {{.ALL}}
 
   purge:
+    desc: Remove all dotfiles.
     cmds:
       - stow --verbose --delete */
