@@ -1,0 +1,6 @@
+If:
+  PathMatch: ".*(\\\\|/)postgres(ql)?(\\\\|/).*\\.h"
+CompileFlags:
+  Add:
+    - "-include"
+    - "postgres.h"

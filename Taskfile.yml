@@ -15,6 +15,7 @@ vars:
     - wlogout
   TOOLS:
     - bat
+    - clangd
     - direnv
     - fish
     - git
