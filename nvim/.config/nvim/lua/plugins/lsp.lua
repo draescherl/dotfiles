@@ -110,6 +110,7 @@ return {
 			bashls = {
 				filetypes = { "sh", "bash" },
 			},
+			clangd = {},
 			pyright = {},
 			rubocop = {},
 			ruby_lsp = {
