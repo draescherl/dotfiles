@@ -3,8 +3,6 @@
 # Themes
 include ./themes/catppuccin-frappe
 
-focus_wrapping no
-
 # Navigation
 set $mod Mod4
 set $left h
@@ -35,6 +33,7 @@ include ./input.conf
 include ./output.conf
 include ./idle.conf
 include ./keybinds.conf
+include ./swayfx.conf
 include /etc/sway/config.d/*
 
 # swaymsg -t get_tree
