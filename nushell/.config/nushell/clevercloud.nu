@@ -21,12 +21,8 @@ def addon_names []: nothing -> list<string> {
 
 def id2psql [id: string] {
     let addon_env = clever addon env ($id) | from toml
-    let dbname = $addon_env | get "POSTGRESQL_ADDON_DB"
-    let host = $addon_env | get "POSTGRESQL_ADDON_HOST"
-    let password = $addon_env | get "POSTGRESQL_ADDON_PASSWORD"
-    let port = $addon_env | get "POSTGRESQL_ADDON_PORT"
-    let user = $addon_env | get "POSTGRESQL_ADDON_USER"
-    psql $"dbname=($dbname) host=($host) password=($password) port=($port) user=($user)"
+    let uri = $addon_env | get "POSTGRESQL_ADDON_URI"
+    psql $"($uri)"
 }
 
 export def ccpg [name: string@addon_names] {
