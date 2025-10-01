@@ -26,7 +26,7 @@ set $ten agrave
 set $menu fuzzel
 
 # Terminal
-set $term wezterm
+set $term alacritty
 
 include ./bar.conf
 include ./input.conf
