@@ -1,6 +1,5 @@
 set fish_greeting # disable greeting message
 
-set -gx SSH_AUTH_SOCK "$HOME/.bitwarden-ssh-agent.sock"
 set -gx EDITOR nvim
 set -gx VISUAL nvim
 
