@@ -1,2 +1,15 @@
 [user]
 	email = lucas.draescher@clever-cloud.com
+
+[user]
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPFL6FdtHG9Cy6X9AlGka/p4tP2qvz/IIb4rhPb//dUb
+
+[gpg]
+  format = ssh
+
+[gpg "ssh"]
+  program = "/opt/1Password/op-ssh-sign"
+
+[commit]
+  gpgsign = true
+
