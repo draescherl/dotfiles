@@ -2,7 +2,7 @@
 	path = ./catppuccin.gitconfig
 [user]
 	name = Lucas DRAESCHER
-	email = lucas.draescher@gmail.com
+	email = git@draescher.fr
 [init]
 	defaultBranch = main
 [push]
