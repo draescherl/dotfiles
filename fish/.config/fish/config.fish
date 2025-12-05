@@ -3,7 +3,9 @@ set fish_greeting # disable greeting message
 set -gx EDITOR nvim
 set -gx VISUAL nvim
 
-bind \cv accept-autosuggestion
+bind ctrl-backspace backward-kill-word
+bind alt-backspace backward-kill-word
+bind ctrl-v accept-autosuggestion
 
 alias aws='docker run --rm -it -v ~/.aws:/root/.aws amazon/aws-cli'
 alias cat='bat'
