@@ -1,7 +1,8 @@
 # Read `man 5 sway` for a complete reference.
 
-# Themes
+# Theme and font
 include ./themes/catppuccin-frappe
+seat seat0 xcursor_theme Adwaita 24
 
 # Navigation
 set $mod Mod4
@@ -22,12 +23,23 @@ set $eight underscore
 set $nine ccedilla
 set $ten agrave
 
-# Launcher
+# Core bindings
+set $files nautilus -w
 set $menu fuzzel
-
-# Terminal
 set $term alacritty
+set $clipboard cliphist list | fuzzel --dmenu | cliphist decode | wl-copy && wtype -M ctrl -M shift -k v -m ctrl
+set $suspend swaylock -f && sleep 2 && systemctl suspend
+set $lock swaylock -f
+set $notifications swaync-client -t -sw
+set $audioUp pactl set-sink-volume @DEFAULT_SINK@ +5%
+set $audioDown pactl set-sink-volume @DEFAULT_SINK@ -5%
+set $audioMute pactl set-sink-mute @DEFAULT_SINK@ toggle
+set $micMute pactl set-source-mute @DEFAULT_SOURCE@ toggle
+set $brightUp brightnessctl set 20%-
+set $brightDown brightnessctl set 20%+
+set $screenshot grimshot --notify --cursor savecopy area
 
+# Includes
 include ./bar.conf
 include ./input.conf
 include ./output.conf
@@ -36,15 +48,10 @@ include ./keybinds.conf
 include ./swayfx.conf
 include /etc/sway/config.d/*
 
-# swaymsg -t get_tree
-for_window [class="Bitwarden"] floating enable
-for_window [app_id="Bitwarden"] floating enable
-seat seat0 xcursor_theme Adwaita 24
-
+# Autostart
 exec_always swaybg --image ~/wallpapers/current --mode fill
 exec swaync
 exec wl-paste --type text --watch cliphist store
 exec wl-paste --type image --watch cliphist store
 exec dbus-update-activation-environment --systemd --all
 exec nm-applet --indicator
-#exec wlsunset -t 3000 -s 20:00 -S 9:00

@@ -1,0 +1,54 @@
+# Read `man 5 sway` for a complete reference.
+
+# Theme and font
+include ./themes/catppuccin-frappe
+seat seat0 xcursor_theme Adwaita 24
+
+# Navigation
+set $mod Mod4
+set $left h
+set $down j
+set $up k
+set $right l
+
+# AZERTY number row
+set $one ampersand
+set $two eacute
+set $three quotedbl
+set $four apostrophe
+set $five parenleft
+set $six minus
+set $seven egrave
+set $eight underscore
+set $nine ccedilla
+set $ten agrave
+
+# Noctalia ipc alias
+set $ipc noctalia-shell ipc call
+
+# Core bindings
+set $files nautilus -w
+set $menu $ipc launcher toggle
+set $term alacritty
+set $clipboard $ipc launcher clipboard
+set $suspend $ipc lockScreen lock && sleep 2 && systemctl suspend
+set $lock $ipc lockScreen lock
+set $notifications $ipc notifications toggleHistory
+set $audioUp $ipc volume increase
+set $audioDown $ipc volume decrease
+set $audioMute $ipc volume muteOutput
+set $micMute $ipc volume muteInput
+set $brightUp $ipc brightness increase
+set $brightDown $ipc brightness decrease
+set $screenshot grimshot --notify --cursor savecopy area
+
+# Includes
+include ./input.conf
+include ./output.conf
+include ./idle.conf
+include ./keybinds.conf
+include ./swayfx.conf
+include /etc/sway/config.d/*
+
+# Autostart
+exec noctalia-shell
