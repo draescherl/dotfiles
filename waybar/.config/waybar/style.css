@@ -1,65 +1,64 @@
 @import "mocha.css";
 
 * {
-	font-family: "JetBrainsMono Nerd Font";
-	font-size: 17px;
-	font-weight: 800;
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 17px;
+    font-weight: 800;
 }
 
 #waybar {
-	background-color: @background;
-	color: @text;
-	border-bottom: 1px solid @surface0;
+    background-color: @base;
+    color: @text;
+    border-bottom: 1px solid @surface0;
 }
 
 #workspaces {
-	margin-left: 0.5rem;
-	background-color: transparent;
+    margin-left: 0.5rem;
+    background-color: transparent;
 }
 
 #workspaces button {
-	padding: 0 2px;
-	color: @text;
-	border-radius: 0.5rem;
+    padding: 0 2px;
+    color: @text;
+    border-radius: 0.5rem;
 }
 
 #workspaces button.urgent {
-	color: @red;
+    color: @red;
 }
 
 #workspaces button:hover {
-	background: @surface0;
-	border: 12px;
-	transition: none;
-	box-shadow: none;
+    background: @surface0;
+    border: 12px;
+    transition: none;
+    box-shadow: none;
 }
 
 #workspaces button.focused {
-	color: @pink;
+    color: @pink;
 }
 
 #tray {
-	margin-left: 15px;
+    margin-left: 15px;
 }
 
 #idle_inhibitor {
-	color: @green;
+    color: @green;
 }
 
 #custom-power {
-	color: @red;
-	margin-right: 0.5rem;
+    color: @red;
+    margin-right: 0.5rem;
 }
 
 #battery.charging {
-	color: @green;
+    color: @green;
 }
 
 #battery.warning:not(.charging) {
-	color: @red;
+    color: @red;
 }
 
 label.module {
-	padding: 0 10px 0 10px;
+    padding: 0 10px 0 10px;
 }
-
