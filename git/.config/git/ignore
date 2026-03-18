@@ -8,4 +8,5 @@
 result
 compile_commands.json
 
+*.patch
 **/.claude/settings.local.json
