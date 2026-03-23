@@ -1,5 +1,17 @@
 alias ccssh="ssh BASTION"
 
+function ccbackup
+    set -lx RUSTIC_REPO_OPT_REGION (op item get rustic-backup --vault Employee --fields S3_REGION)
+    set -lx RUSTIC_REPO_OPT_BUCKET (op item get rustic-backup --vault Employee --fields S3_BUCKET)
+    set -lx RUSTIC_REPO_OPT_ENDPOINT (op item get rustic-backup --vault Employee --fields S3_ENDPOINT)
+    set -lx RUSTIC_REPO_OPT_ACCESS_KEY_ID (op item get rustic-backup --vault Employee --fields S3_ACCESS_KEY_ID --reveal)
+    set -lx RUSTIC_REPO_OPT_SECRET_ACCESS_KEY (op item get rustic-backup --vault Employee --fields S3_SECRET_ACCESS_KEY --reveal)
+    set -lx RUSTIC_PASSWORD (op item get rustic-backup --vault Employee --fields password --reveal)
+    set -lx RUSTIC_REPO_OPT_ROOT "/"
+    set -lx RUSTIC_REPOSITORY "opendal:s3"
+    rustic $argv
+end
+
 function exherbobackup
     set -l MACHINE_PATH "/var/lib/machines/exherbo"
     set -l BACKUP_DIR "$HOME/Documents/exherbo-backups"
