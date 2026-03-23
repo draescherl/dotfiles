@@ -24,6 +24,7 @@ vars:
     - nushell
     - nvim
     - psql
+    - rustic
     - starship
 
 tasks:

@@ -1,0 +1,27 @@
+[backup]
+exclude-if-present = [".nobackup"]
+git-ignore = true
+no-require-git = true
+
+# Glob patterns to exclude. Patterns without a slash match the base name at
+# any depth, so `node_modules` excludes every node_modules directory.
+globs = [
+    "__pycache__",
+    ".venv",
+    "venv",
+    "node_modules",
+    "target",
+    "*.o",
+    "*.class",
+    "build",
+    "dist",
+    "out",
+    ".cache",
+]
+
+[forget]
+prune = true
+keep-daily = 2
+keep-weekly = 3
+keep-monthly = 5
+

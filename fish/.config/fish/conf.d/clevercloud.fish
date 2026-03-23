@@ -1,5 +1,28 @@
 alias ccssh="ssh BASTION"
 
+function ccbackup
+    # Fetch all secrets in a single 1Password call, then split into env vars.
+    set -l fields (op item get rustic-backup --vault Employee --reveal --format json \
+        | jq -r '.fields | map(select(.label != null)) | INDEX(.label)
+                 | .S3_REGION.value, .S3_BUCKET.value, .S3_ENDPOINT.value,
+                   .S3_ACCESS_KEY_ID.value, .S3_SECRET_ACCESS_KEY.value, .password.value')
+    or return
+
+    set -lx RUSTIC_REPO_OPT_REGION $fields[1]
+    set -lx RUSTIC_REPO_OPT_BUCKET $fields[2]
+    set -lx RUSTIC_REPO_OPT_ENDPOINT $fields[3]
+    set -lx OPENDAL_ACCESS_KEY_ID $fields[4]
+    set -lx OPENDAL_SECRET_ACCESS_KEY $fields[5]
+    set -lx RUSTIC_PASSWORD $fields[6]
+    set -lx RUSTIC_REPO_OPT_ROOT "/"
+    set -lx RUSTIC_REPOSITORY "opendal:s3"
+    rustic $argv
+end
+
+function probackup
+    ccbackup backup ~/Documents/pro
+end
+
 function exherbobackup
     set -l MACHINE_PATH "/var/lib/machines/exherbo"
     set -l BACKUP_DIR "$HOME/Documents/exherbo-backups"
