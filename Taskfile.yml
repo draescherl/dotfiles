@@ -16,6 +16,7 @@ vars:
   TOOLS:
     - bat
     - clangd
+    - claude
     - direnv
     - fish
     - git
