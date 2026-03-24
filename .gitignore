@@ -1,4 +1,4 @@
 default.target.wants/
 zsh/.zsh/zsh_history
 zsh/.zsh/zcompdump
-fish/.config/fish/fish_variables
+fish/.config/fish/fish_variables*
