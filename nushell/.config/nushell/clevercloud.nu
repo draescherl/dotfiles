@@ -28,4 +28,3 @@ def id2psql [id: string] {
 export def ccpg [name: string@addon_names] {
     id2psql (addon_mappings | get $name)
 }
-
