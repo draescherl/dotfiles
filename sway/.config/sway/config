@@ -55,4 +55,3 @@ exec wl-paste --type text --watch cliphist store
 exec wl-paste --type image --watch cliphist store
 exec dbus-update-activation-environment --systemd --all
 exec nm-applet --indicator
-exec lxpolkit
