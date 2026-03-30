@@ -55,7 +55,7 @@ function vmssh
 end
 
 function hvssh
-    cleverssh ssh $argv
+    ssh -t "root@$argv.clvrcld.net"
 end
 
 function idssh
