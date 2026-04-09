@@ -125,6 +125,7 @@ return {
 				filetypes = { "sh", "bash" },
 			},
 			clangd = {},
+			elp = {},
 			pyright = {},
 			rubocop = {},
 			ruby_lsp = {
