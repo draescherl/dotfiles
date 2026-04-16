@@ -10,5 +10,8 @@
   },
   "effortLevel": "medium",
   "skipDangerousModePermissionPrompt": true,
-  "model": "opus"
+  "model": "opus",
+  "attribution": {
+    "commit": ""
+  }
 }
