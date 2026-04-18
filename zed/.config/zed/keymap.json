@@ -1,0 +1,103 @@
+// Zed keymap translated from ~/dotfiles/nvim/.config/nvim
+// Leader is <Space> in normal/visual mode, matching Neovim.
+[
+  // ───────── Global (any context) ─────────
+  {
+    "bindings": {
+      "ctrl-h": ["pane::ActivateItem", 0],
+      "ctrl-j": ["pane::ActivateItem", 1],
+      "ctrl-k": ["pane::ActivateItem", 2],
+      "ctrl-l": ["pane::ActivateItem", 3],
+      "ctrl-shift-n": "pane::ActivateNextItem",
+      "ctrl-shift-p": "pane::ActivatePreviousItem"
+    }
+  },
+
+  // ───────── Vim normal/visual: <leader>… mappings ─────────
+  {
+    "context": "vim_mode == normal || vim_mode == visual",
+    "use_key_equivalents": true,
+    "bindings": {
+      // File explorer / files
+      "space n r": "workspace::ToggleLeftDock",
+      "space f":   "project_panel::ToggleFocus",
+
+      // Window / split management (nvim: <leader>v, b, se, xs)
+      "space v":   "pane::SplitRight",
+      "space b":   "pane::SplitDown",
+      "space s e": "workspace::ResetActiveDockSize",
+      "space x s": "pane::CloseActiveItem",
+
+      // Tabs (nvim: <leader>to, tx, tn, tp)
+      "space t o": "workspace::NewFile",
+      "space t x": "pane::CloseActiveItem",
+      "space t n": "pane::ActivateNextItem",
+      "space t p": "pane::ActivatePreviousItem",
+
+      // Diagnostics (nvim: <leader>dp, dn, ds, q)
+      "space d p": "editor::GoToPreviousDiagnostic",
+      "space d n": "editor::GoToDiagnostic",
+      "space d s": "editor::Hover",
+      "space q":   "diagnostics::Deploy",
+
+      // LSP (nvim: <leader>h, rn, ca, gr, gi + g{d,D,O,W,t})
+      "space h":   "editor::Hover",
+      "space r n": "editor::Rename",
+      "space c a": "editor::ToggleCodeActions",
+      "space g r": "editor::FindAllReferences",
+      "space g i": "editor::GoToImplementation",
+
+      // Format (nvim: conform.nvim <leader>ri)
+      "space r i": "editor::Format",
+
+      // Inlay hints toggle (nvim: <leader>th)
+      "space t h": "editor::ToggleInlayHints",
+
+      // Telescope-style pickers (nvim: <leader>s…)
+      "space s f": "file_finder::Toggle",
+      "space s g": "pane::DeploySearch",
+      "space s w": "pane::DeploySearch",
+      "space s d": "diagnostics::Deploy",
+      "space s k": "command_palette::Toggle",
+      "space s s": "command_palette::Toggle",
+      "space s r": "workspace::NewSearch",
+      "space s .": "projects::OpenRecent",
+      "space s n": "zed::OpenSettings",
+
+      // Buffers / fuzzy (nvim: <leader><leader>, <leader>/)
+      "space space": "tab_switcher::Toggle",
+      "space /":     "buffer_search::Deploy",
+
+      // Undo history (nvim: <leader>u → telescope undo; closest: command palette)
+      "space u": "command_palette::Toggle",
+
+      // Harpoon (nvim: <leader>a, e) – Zed has no harpoon; map to bookmarks
+      "space a": "editor::ToggleBreakpoint",
+      "space e": "outline::Toggle",
+
+      // Git blame (nvim: <leader>gb)
+      "space g b": "editor::ToggleGitBlame"
+    }
+  },
+
+  // ───────── Vim normal: g-prefixed LSP jumps ─────────
+  {
+    "context": "vim_mode == normal",
+    "use_key_equivalents": true,
+    "bindings": {
+      "g d": "editor::GoToDefinition",
+      "g shift-d": "editor::GoToDeclaration",
+      "g shift-o": "outline::Toggle",
+      "g shift-w": "project_symbols::Toggle",
+      "g t":       "editor::GoToTypeDefinition"
+    }
+  },
+
+  // ───────── Vim insert: jj escape (matches ideavim) ─────────
+  {
+    "context": "vim_mode == insert",
+    "bindings": {
+      "j j": "vim::NormalBefore"
+    }
+  }
+]
