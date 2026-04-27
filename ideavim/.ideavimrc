@@ -16,7 +16,6 @@ set showcmd
 set visualbell
 set clipboard+=unnamed
 set incsearch
-"set noignorecase
 set ignorecase
 set smartcase   " if any search character is uppercase then use case sensitive
 set hlsearch
@@ -71,5 +70,4 @@ nmap <leader>gD <Action>(GotoDeclaration)
 nmap <leader>gy <Action>(GotoTypeDeclaration)
 nmap <leader>gi <Action>(GotoImplementation)
 nmap <leader>gr <Action>(ShowUsages)
-nmap <leader>gr <Action>(ShowUsages)
-nmap C-t <Action>(Back)
+nmap <C-t> <Action>(Back)
