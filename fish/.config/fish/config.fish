@@ -38,6 +38,16 @@ abbr untar 'tar -xvzf'
 abbr vim 'nvim'
 abbr iba 'ip -brief -4 a'
 
+function replace -a search replace -d "Recursively replace <search> with <replace> in all files under cwd"
+    if test (count $argv) -ne 2
+        echo "usage: replace <search> <replace>" >&2
+        echo "  <search>   regex pattern to find (sd syntax)" >&2
+        echo "  <replace>  replacement string" >&2
+        return 1
+    end
+    fd --type file --exec sd $search $replace
+end
+
 direnv hook fish | source
 fzf --fish | source
 starship init fish | source
