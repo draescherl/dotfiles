@@ -1,8 +1,11 @@
 {
 	"layer": "top",
 	"position": "top",
+	"height": 26,
+	"margin-bottom": 5,
 	"modules-left": [
 		"sway/workspaces",
+		"ext/workspaces",
 		"tray",
 	],
 	"modules-center": [
@@ -22,6 +25,9 @@
 	],
 	"sway/workspaces": {
 		"disable-scroll": true
+	},
+	"ext/workspaces": {
+	   "on-click": "activate",
 	},
 	"clock": {
 		"format": "{:%a, %d %b, %R}",
