@@ -37,6 +37,7 @@ abbr n 'nvim'
 abbr untar 'tar -xvzf'
 abbr vim 'nvim'
 abbr iba 'ip -brief -4 a'
+abbr cleangit 'git branch -vv | grep "gone" | awk \'{print $1}\' | xargs git branch --delete --force'
 
 function replace -a search replace -d "Recursively replace <search> with <replace> in all files under cwd"
     if test (count $argv) -ne 2
