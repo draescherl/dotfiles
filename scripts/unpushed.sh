@@ -61,14 +61,6 @@ while IFS= read -r -d '' git_dir; do
         continue
     fi
     
-    # Check if current branch has a remote tracking branch
-    upstream=$(git rev-parse --abbrev-ref "$current_branch@{upstream}" 2>/dev/null)
-    if [ -z "$upstream" ]; then
-        echo -e "${YELLOW}  ⚠ Branch '$current_branch' has no upstream branch${NC}"
-        repos_with_issues=$((repos_with_issues + 1))
-        continue
-    fi
-    
     # Fetch to get latest remote information (quietly)
     echo "  Fetching latest remote information..."
     if ! git fetch --quiet 2>/dev/null; then
@@ -76,22 +68,44 @@ while IFS= read -r -d '' git_dir; do
         repos_with_issues=$((repos_with_issues + 1))
         continue
     fi
-    
+
+    # Check for local branches that don't exist on the remote
+    unpushed_branches=()
+    while IFS= read -r branch; do
+        [ -z "$branch" ] && continue
+        if ! git rev-parse --verify --quiet "refs/remotes/$remote/$branch" >/dev/null; then
+            unpushed_branches+=("$branch")
+        fi
+    done < <(git for-each-ref --format='%(refname:short)' refs/heads/)
+
+    if [ "${#unpushed_branches[@]}" -gt 0 ]; then
+        echo -e "${RED}  ✗ ${#unpushed_branches[@]} local branch(es) not on remote '$remote':${NC}"
+        printf "${YELLOW}    %s${NC}\n" "${unpushed_branches[@]}"
+        repos_with_issues=$((repos_with_issues + 1))
+    fi
+
+    # Check if current branch has a remote tracking branch
+    upstream=$(git rev-parse --abbrev-ref "$current_branch@{upstream}" 2>/dev/null)
+    if [ -z "$upstream" ]; then
+        echo -e "${YELLOW}  ⚠ Branch '$current_branch' has no upstream branch${NC}"
+        continue
+    fi
+
     # Check if local branch is ahead of remote
     ahead=$(git rev-list --count "$upstream".."$current_branch" 2>/dev/null)
     behind=$(git rev-list --count "$current_branch".."$upstream" 2>/dev/null)
-    
+
     if [ "$ahead" -gt 0 ]; then
         echo -e "${RED}  ✗ Branch '$current_branch' is $ahead commit(s) ahead of '$upstream'${NC}"
         repos_with_issues=$((repos_with_issues + 1))
-        
+
         # Show the unpushed commits
         echo -e "${YELLOW}  Unpushed commits:${NC}"
         git log --oneline "$upstream".."$current_branch" | sed 's/^/    /'
     else
         echo -e "${GREEN}  ✓ Branch '$current_branch' is up to date with '$upstream'${NC}"
     fi
-    
+
     if [ "$behind" -gt 0 ]; then
         echo -e "${YELLOW}  ⚠ Branch '$current_branch' is $behind commit(s) behind '$upstream'${NC}"
     fi
