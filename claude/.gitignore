@@ -1,0 +1,7 @@
+# Claude Code fills ~/.claude/ with runtime state, caches, and secrets.
+# Ignore everything under .claude/ …
+.claude/*
+
+# … except the config we actually track.
+!.claude/settings.json
+!.claude/statusline-command.sh
