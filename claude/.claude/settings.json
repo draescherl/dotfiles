@@ -16,5 +16,6 @@
   "skipDangerousModePermissionPrompt": true,
   "theme": "auto",
   "remoteControlAtStartup": true,
-  "agentPushNotifEnabled": false
+  "agentPushNotifEnabled": false,
+  "tui": "fullscreen"
 }
