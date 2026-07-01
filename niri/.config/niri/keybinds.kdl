@@ -1,0 +1,116 @@
+binds {
+    // --- Core bindings -----------------------------------------------------
+    Mod+Shift+Q { close-window; }                                  // sway: kill
+    // sway: $mod+Shift+r reload — niri reloads config automatically on save.
+    Mod+F { spawn "nautilus" "-w"; }                               // $files
+    Mod+M { spawn "fuzzel"; }                                      // $menu
+    Mod+Return { spawn "alacritty"; }                              // $term
+    Mod+Shift+V { spawn-sh "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy && wtype -M ctrl -M shift -k v -m ctrl"; }  // $clipboard
+    Mod+Shift+O { spawn-sh "swaylock -f && sleep 2 && systemctl suspend"; }  // $suspend
+    Mod+O { spawn "swaylock" "-f"; }                               // $lock
+    Mod+Y { spawn "pkill" "-SIGUSR1" "waybar"; }                   // reload waybar (bar.conf)
+
+    XF86AudioRaiseVolume { spawn "pactl" "set-sink-volume" "@DEFAULT_SINK@" "+5%"; }    // $audioUp
+    XF86AudioLowerVolume { spawn "pactl" "set-sink-volume" "@DEFAULT_SINK@" "-5%"; }    // $audioDown
+    XF86AudioMute        { spawn "pactl" "set-sink-mute" "@DEFAULT_SINK@" "toggle"; }   // $audioMute
+    Shift+XF86AudioMute  { spawn "pactl" "set-source-mute" "@DEFAULT_SOURCE@" "toggle"; } // $micMute
+    XF86AudioMicMute     { spawn "pactl" "set-source-mute" "@DEFAULT_SOURCE@" "toggle"; }
+    XF86MonBrightnessDown { spawn "brightnessctl" "set" "20%-"; }  // $brightUp
+    XF86MonBrightnessUp   { spawn "brightnessctl" "set" "20%+"; }  // $brightDown
+    Print          { screenshot; }                                // $screenshot (area select)
+    Mod+Shift+S    { screenshot; }
+
+    // --- Focus -------------------------------------------------------------
+    // sway: $mod+a focus parent — no niri equivalent (scrollable tiling).
+    Mod+H { focus-column-left; }
+    Mod+J { focus-window-down; }
+    Mod+K { focus-window-up; }
+    Mod+L { focus-column-right; }
+    Mod+Shift+H { move-column-left; }
+    Mod+Shift+J { move-window-down; }
+    Mod+Shift+K { move-window-up; }
+    Mod+Shift+L { move-column-right; }
+
+    // --- Layout ------------------------------------------------------------
+    // sway: $mod+b/$mod+v (splith/splitv), $mod+s (stacking), $mod+e (toggle
+    // split) have no niri analog. Tabbed display is the closest match:
+    Mod+T { toggle-column-tabbed-display; }                        // sway: layout tabbed
+    Mod+Z { fullscreen-window; }                                   // sway: fullscreen
+
+    // --- Floating ----------------------------------------------------------
+    Mod+Shift+Space { spawn-sh "~/.config/niri/scripts/toggle-floating.sh"; }  // sway: floating toggle
+    Mod+Space       { switch-focus-between-floating-and-tiling; }              // sway: focus mode_toggle
+
+    // --- Resizing ----------------------------------------------------------
+    // sway uses a `resize` mode (Mod+r); niri has no modes, so resize is direct:
+    Mod+parenright { set-column-width "-10%"; }
+    Mod+Equal      { set-column-width "+10%"; }
+    Mod+Shift+parenright { set-window-height "-10%"; }
+    Mod+Shift+Equal      { set-window-height "+10%"; }
+
+    // --- Workspaces (AZERTY number row) ------------------------------------
+    Mod+ampersand  { focus-workspace 1; }
+    Mod+eacute     { focus-workspace 2; }
+    Mod+quotedbl   { focus-workspace 3; }
+    Mod+apostrophe { focus-workspace 4; }
+    Mod+parenleft  { focus-workspace 5; }
+    Mod+minus      { focus-workspace 6; }
+    Mod+egrave     { focus-workspace 7; }
+    Mod+underscore { focus-workspace 8; }
+    Mod+ccedilla   { focus-workspace 9; }
+    Mod+agrave     { focus-workspace 10; }
+
+    Mod+Shift+ampersand  { move-column-to-workspace 1; }
+    Mod+Shift+eacute     { move-column-to-workspace 2; }
+    Mod+Shift+quotedbl   { move-column-to-workspace 3; }
+    Mod+Shift+apostrophe { move-column-to-workspace 4; }
+    Mod+Shift+parenleft  { move-column-to-workspace 5; }
+    Mod+Shift+minus      { move-column-to-workspace 6; }
+    Mod+Shift+egrave     { move-column-to-workspace 7; }
+    Mod+Shift+underscore { move-column-to-workspace 8; }
+    Mod+Shift+ccedilla   { move-column-to-workspace 9; }
+    Mod+Shift+agrave     { move-column-to-workspace 10; }
+
+    // sway: move workspace to output (Mod+Ctrl+Shift+dir)
+    Mod+Ctrl+Shift+H { move-workspace-to-monitor-left; }
+    Mod+Ctrl+Shift+L { move-workspace-to-monitor-right; }
+    Mod+Ctrl+Shift+J { move-workspace-to-monitor-down; }
+    Mod+Ctrl+Shift+K { move-workspace-to-monitor-up; }
+
+    // sway: three-finger swipe to switch workspace — niri does this natively.
+
+    // sway: $mod+Shift+n toggles the laptop output (eDP-1).
+    Mod+Shift+N { spawn-sh "niri msg output eDP-1 toggle"; }
+
+    // --- Niri-only -------------------------------------------------------
+    // Features niri adds that sway lacks; kept on non-conflicting keys.
+    Mod+Tab repeat=false { toggle-overview; }                      // was Mod+O (now $lock)
+    Mod+W { switch-preset-column-width; }                          // was Mod+R
+    Mod+Shift+W { switch-preset-window-height; }
+    Mod+Ctrl+R { reset-window-height; }
+    Mod+Shift+Z { maximize-column; }                               // Mod+Z is now fullscreen
+
+    Mod+Home { focus-column-first; }
+    Mod+End  { focus-column-last; }
+    Mod+Ctrl+Home { move-column-to-first; }
+    Mod+Ctrl+End  { move-column-to-last; }
+    Mod+Ctrl+J { move-column-to-workspace-down; }
+    Mod+Ctrl+K { move-column-to-workspace-up; }
+
+    Mod+BracketLeft  { consume-or-expel-window-left; }
+    Mod+BracketRight { consume-or-expel-window-right; }
+    Mod+Comma { consume-window-into-column; }
+    Mod+Shift+Comma { expel-window-from-column; }
+
+    Mod+Ctrl+F { expand-column-to-available-width; }
+    Mod+C { center-column; }
+    Mod+Ctrl+C { center-visible-columns; }
+
+    Ctrl+Print { screenshot-screen; }
+    Alt+Print  { screenshot-window; }
+
+    Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+
+    Mod+Shift+E { quit; }
+    Ctrl+Alt+Delete { quit; }
+}

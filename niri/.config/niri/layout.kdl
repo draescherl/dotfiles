@@ -1,0 +1,27 @@
+layout {
+    gaps 5
+    background-color "transparent"
+
+    border {
+        off
+    }
+
+    preset-column-widths {
+        proportion 0.25
+        proportion 0.5
+        proportion 0.75
+    }
+
+    default-column-width {
+        proportion 0.5
+    }
+
+    focus-ring {
+        on
+        width 1.5
+    }
+}
+
+animations {
+    on
+}

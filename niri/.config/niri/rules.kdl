@@ -1,0 +1,57 @@
+// niri msg windows
+// niri msg layers
+
+debug {
+    // preview-render "screencast"
+    // preview-render "screen-capture"
+}
+
+blur {
+    on
+    passes 2
+}
+
+// Rounded corners on all windows.
+window-rule {
+    geometry-corner-radius 5
+    clip-to-geometry true
+}
+
+// Windows opened floating by default.
+window-rule {
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    match app-id="org.gnome.Nautilus"
+    match app-id="org.gnome.Loupe"
+    open-floating true
+}
+
+// Windows blocked from screencast.
+window-rule {
+    match app-id="proton-pass"
+    block-out-from "screencast"
+}
+
+// Windows with blur.
+window-rule {
+    match app-id="^Alacritty$"
+    background-effect {
+        blur true
+        xray false
+        saturation 2
+    }
+}
+
+// Layers blocked out from screencasts.
+layer-rule {
+    match namespace="^notifications$"
+    block-out-from "screencast"
+}
+
+// Render the swaybg wallpaper inside the overview backdrop (and behind all
+// workspaces) instead of a flat backdrop colour. swaybg's layer-shell
+// namespace is "wallpaper".
+layer-rule {
+    match namespace="^wallpaper$"
+    place-within-backdrop true
+}
+

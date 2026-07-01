@@ -1,0 +1,23 @@
+input {
+    keyboard {
+        xkb {
+            layout "fr"
+        }
+        numlock
+    }
+
+    touchpad {
+        dwt
+        tap
+        natural-scroll
+        middle-emulation
+        accel-profile "flat"
+        accel-speed 0.8
+    }
+
+    mouse {
+        accel-profile "flat"
+        accel-speed -0.2
+        scroll-factor 1
+    }
+}
