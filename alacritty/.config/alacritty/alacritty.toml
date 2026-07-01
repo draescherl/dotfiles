@@ -2,7 +2,8 @@
 import = ["catppuccin-mocha.toml"]
 
 [window]
-opacity = 0.9
+opacity = 0.8
+blur = true
 
 [font]
 normal = { family = "JetBrainsMono Nerd Font", style = "Bold" }
