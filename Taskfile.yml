@@ -3,15 +3,18 @@
 version: '3'
 
 vars:
-  DESKTOP:
-    - alacritty
-    - fuzzel
+  SWAY:
     - sway
     - swaylock
     - swaync
+  NIRI:
+    - niri
+    - mako
+  COMMON:
+    - alacritty
+    - fuzzel
     - wallpapers
     - waybar
-    - wezterm
     - wlogout
   TOOLS:
     - bat
@@ -29,29 +32,38 @@ vars:
 
 tasks:
   default:
-    desc: Install desktop and tools.
+    desc: Install Sway, Niri and tools.
     deps:
+      - common
+      - niri
+      - sway
       - tools
-      - desktop
 
   tools:
     desc: Install only tools.
     cmds:
       - stow --verbose {{.TOOLS | join " "}}
 
-  desktop:
-    desc: Install only desktop.
+  common:
+    desc: Install common desktop configs.
     cmds:
-      - stow --verbose {{.DESKTOP | join " "}}
+      - stow --verbose {{.COMMON | join " "}}
+
+  sway:
+    desc: Install only Sway.
+    cmds:
+      - stow --verbose {{.SWAY | join " "}}
+    deps:
+      - common
+
+  niri:
+    desc: Install only Niri.
+    cmds:
+      - stow --verbose {{.NIRI | join " "}}
+    deps:
+      - common
 
   clean:
-    desc: Remove desktop and tools.
-    vars:
-      ALL: '{{.DESKTOP | join " "}} {{.TOOLS | join " "}} '
-    cmds:
-      - stow --verbose --delete {{.ALL}}
-
-  purge:
     desc: Remove all dotfiles.
     cmds:
       - stow --verbose --delete */
