@@ -4,3 +4,7 @@ output "Xiaomi Corporation Mi Monitor Unknown" {
     mode "3440x1440@144.000"
     position x=0 y=0
 }
+
+output "eDP-1" {
+    scale 1.2
+}
