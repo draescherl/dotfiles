@@ -1,27 +1,25 @@
 binds {
     // --- Core bindings -----------------------------------------------------
-    Mod+Shift+Q { close-window; }                                  // sway: kill
-    // sway: $mod+Shift+r reload — niri reloads config automatically on save.
-    Mod+F { spawn "nautilus" "-w"; }                               // $files
-    Mod+M { spawn "fuzzel"; }                                      // $menu
-    Mod+Return { spawn "alacritty"; }                              // $term
-    Mod+Shift+V { spawn-sh "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy && wtype -M ctrl -M shift -k v -m ctrl"; }  // $clipboard
-    Mod+Shift+O { spawn-sh "swaylock -f && sleep 2 && systemctl suspend"; }  // $suspend
-    Mod+O { spawn "swaylock" "-f"; }                               // $lock
-    Mod+Y { spawn "pkill" "-SIGUSR1" "waybar"; }                   // reload waybar (bar.conf)
+    Mod+Shift+Q { close-window; }
+    Mod+F { spawn "nautilus" "-w"; }
+    Mod+M { spawn "fuzzel"; }
+    Mod+Return { spawn "alacritty"; }
+    Mod+Shift+V { spawn-sh "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy && wtype -M ctrl -M shift -k v -m ctrl"; }
+    Mod+O { spawn "wlogout" "--buttons-per-row" "5" "--margin" "500"; }
+    Mod+Y { spawn "pkill" "-SIGUSR1" "waybar"; }        // hide waybar
+    Mod+Shift+Y { spawn "pkill" "-SIGUSR2" "waybar"; }  // reload waybar
 
-    XF86AudioRaiseVolume { spawn "pactl" "set-sink-volume" "@DEFAULT_SINK@" "+5%"; }    // $audioUp
-    XF86AudioLowerVolume { spawn "pactl" "set-sink-volume" "@DEFAULT_SINK@" "-5%"; }    // $audioDown
-    XF86AudioMute        { spawn "pactl" "set-sink-mute" "@DEFAULT_SINK@" "toggle"; }   // $audioMute
-    Shift+XF86AudioMute  { spawn "pactl" "set-source-mute" "@DEFAULT_SOURCE@" "toggle"; } // $micMute
+    XF86AudioRaiseVolume { spawn "pactl" "set-sink-volume" "@DEFAULT_SINK@" "+5%"; }
+    XF86AudioLowerVolume { spawn "pactl" "set-sink-volume" "@DEFAULT_SINK@" "-5%"; }
+    XF86AudioMute        { spawn "pactl" "set-sink-mute" "@DEFAULT_SINK@" "toggle"; }
+    Shift+XF86AudioMute  { spawn "pactl" "set-source-mute" "@DEFAULT_SOURCE@" "toggle"; }
     XF86AudioMicMute     { spawn "pactl" "set-source-mute" "@DEFAULT_SOURCE@" "toggle"; }
-    XF86MonBrightnessDown { spawn "brightnessctl" "set" "20%-"; }  // $brightUp
-    XF86MonBrightnessUp   { spawn "brightnessctl" "set" "20%+"; }  // $brightDown
-    Print          { screenshot; }                                // $screenshot (area select)
+    XF86MonBrightnessDown { spawn "brightnessctl" "set" "20%-"; }
+    XF86MonBrightnessUp   { spawn "brightnessctl" "set" "20%+"; }
+    Print          { screenshot; }
     Mod+Shift+S    { screenshot; }
 
     // --- Focus -------------------------------------------------------------
-    // sway: $mod+a focus parent — no niri equivalent (scrollable tiling).
     Mod+H { focus-column-left; }
     Mod+J { focus-window-down; }
     Mod+K { focus-window-up; }
@@ -32,17 +30,14 @@ binds {
     Mod+Shift+L { move-column-right; }
 
     // --- Layout ------------------------------------------------------------
-    // sway: $mod+b/$mod+v (splith/splitv), $mod+s (stacking), $mod+e (toggle
-    // split) have no niri analog. Tabbed display is the closest match:
-    Mod+T { toggle-column-tabbed-display; }                        // sway: layout tabbed
-    Mod+Z { fullscreen-window; }                                   // sway: fullscreen
+    Mod+T { toggle-column-tabbed-display; }
+    Mod+Z { fullscreen-window; }
 
     // --- Floating ----------------------------------------------------------
-    Mod+Shift+Space { spawn-sh "~/.config/niri/scripts/toggle-floating.sh"; }  // sway: floating toggle
-    Mod+Space       { switch-focus-between-floating-and-tiling; }              // sway: focus mode_toggle
+    Mod+Shift+Space { spawn-sh "~/.config/niri/scripts/toggle-floating.sh"; }
+    Mod+Space       { switch-focus-between-floating-and-tiling; }
 
     // --- Resizing ----------------------------------------------------------
-    // sway uses a `resize` mode (Mod+r); niri has no modes, so resize is direct:
     Mod+parenright { set-column-width "-10%"; }
     Mod+Equal      { set-column-width "+10%"; }
     Mod+Shift+parenright { set-window-height "-10%"; }
@@ -71,24 +66,19 @@ binds {
     Mod+Shift+ccedilla   { move-column-to-workspace 9; }
     Mod+Shift+agrave     { move-column-to-workspace 10; }
 
-    // sway: move workspace to output (Mod+Ctrl+Shift+dir)
     Mod+Ctrl+Shift+H { move-workspace-to-monitor-left; }
     Mod+Ctrl+Shift+L { move-workspace-to-monitor-right; }
     Mod+Ctrl+Shift+J { move-workspace-to-monitor-down; }
     Mod+Ctrl+Shift+K { move-workspace-to-monitor-up; }
 
-    // sway: three-finger swipe to switch workspace — niri does this natively.
-
-    // sway: $mod+Shift+n toggles the laptop output (eDP-1).
     Mod+Shift+N { spawn-sh "niri msg output eDP-1 toggle"; }
 
     // --- Niri-only -------------------------------------------------------
-    // Features niri adds that sway lacks; kept on non-conflicting keys.
-    Mod+Tab repeat=false { toggle-overview; }                      // was Mod+O (now $lock)
-    Mod+W { switch-preset-column-width; }                          // was Mod+R
-    Mod+Shift+W { switch-preset-window-height; }
+    Mod+Tab repeat=false { toggle-overview; }
+    Mod+R { switch-preset-column-width; }
+    Mod+Shift+R { switch-preset-window-height; }
     Mod+Ctrl+R { reset-window-height; }
-    Mod+Shift+Z { maximize-column; }                               // Mod+Z is now fullscreen
+    Mod+Shift+Z { maximize-column; }
 
     Mod+Home { focus-column-first; }
     Mod+End  { focus-column-last; }
