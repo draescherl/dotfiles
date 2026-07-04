@@ -1,52 +1,61 @@
 * {
 	background-image: none;
 	box-shadow: none;
-	font-family: 'JetBrainsMono Nerd Font';
 }
 
 window {
-	background-color: rgba(48, 52, 70, 0.90);
+	background-color: rgba(17, 17, 27, 0.65);
 }
 
 button {
-	border-radius: 0;
-	border-color: #8caaee;
-	text-decoration-color: #c6d0f5;
-	color: #c6d0f5;
-	background-color: #292c3c;
+	font-family: "JetBrainsMono Nerd Font";
+	font-size: 14pt;
+	font-weight: bold;
+	color: #cdd6f4;
+
+	border-radius: 25px;
+	background-color: rgba(30, 30, 46, 0.85);
+	border-color: rgba(49, 50, 68, 0.8);
 	border-style: solid;
-	border-width: 1px;
+	border-width: 2px;
+
 	background-repeat: no-repeat;
-	background-position: center;
-	background-size: 25%;
+	background-position: center 28%;
+	background-size: 28%;
+
+	margin: 5px;
 }
 
-button:focus, button:active, button:hover {
-	/* 20% Overlay 2, 80% mantle */
-	background-color: rgb(63, 66, 85);
+button:focus {
 	outline-style: none;
+	box-shadow: none;
+}
+
+button:active, button:hover {
+	outline-style: none;
+	background-color: rgba(49, 50, 68, 0.9);
+	border-color: #89b4fa;
+	background-size: 34%;
+	color: #89b4fa;
+	transition: all 0.2s cubic-bezier(.55, 0.0, .28, 1.682);
 }
 
 #lock {
-    background-image: url("./lock.svg");
+	background-image: url("./lock.svg");
+}
+
+#sleep {
+	background-image: url("./suspend.svg");
 }
 
 #logout {
-    background-image: url("./logout.svg");
-}
-
-#suspend {
-    background-image: url("./suspend.svg");
-}
-
-#hibernate {
-    background-image: url("./hibernate.svg");
-}
-
-#shutdown {
-    background-image: url("./shutdown.svg");
+	background-image: url("./logout.svg");
 }
 
 #reboot {
-    background-image: url("./reboot.svg");
+	background-image: url("./reboot.svg");
+}
+
+#shutdown {
+	background-image: url("./shutdown.svg");
 }

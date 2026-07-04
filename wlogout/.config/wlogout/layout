@@ -1,18 +1,30 @@
 {
-    "label" : "logout",
-    "action" : "loginctl terminate-user $USER",
-    "text" : "Logout",
-    "keybind" : "e"
+    "label" : "lock",
+    "action" : "hyprlock",
+    "text" : "[l]ock",
+    "keybind" : "l"
 }
 {
-    "label" : "shutdown",
-    "action" : "systemctl poweroff",
-    "text" : "Shutdown",
+    "label" : "sleep",
+    "action" : "hyprlock && sleep 2 && systemctl suspend",
+    "text" : "[s]leep",
     "keybind" : "s"
+}
+{
+    "label" : "logout",
+    "action" : "loginctl terminate-user $USER",
+    "text" : "[e]xit",
+    "keybind" : "e"
 }
 {
     "label" : "reboot",
     "action" : "systemctl reboot",
-    "text" : "Reboot",
+    "text" : "[r]eboot",
     "keybind" : "r"
+}
+{
+    "label" : "shutdown",
+    "action" : "systemctl poweroff",
+    "text" : "[x] shutdown",
+    "keybind" : "x"
 }

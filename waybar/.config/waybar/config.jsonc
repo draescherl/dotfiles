@@ -128,7 +128,7 @@
 	},
 	"custom/power": {
 		"tooltip": false,
-		"on-click": "wlogout --margin 500 &",
+		"on-click": "wlogout --buttons-per-row 5 --margin 500 &",
 		"format": ""
 	},
 	"tray": {
