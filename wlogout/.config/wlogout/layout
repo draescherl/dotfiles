@@ -25,6 +25,6 @@
 {
     "label" : "shutdown",
     "action" : "systemctl poweroff",
-    "text" : "[x] shutdown",
-    "keybind" : "x"
+    "text" : "shut[d]own",
+    "keybind" : "d"
 }
