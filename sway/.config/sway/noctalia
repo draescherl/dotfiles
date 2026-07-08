@@ -48,6 +48,7 @@ include ./output.conf
 include ./idle.conf
 include ./keybinds.conf
 include ./swayfx.conf
+include ./optional/*
 include /etc/sway/config.d/*
 
 # Autostart
