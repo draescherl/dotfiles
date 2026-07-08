@@ -8,13 +8,10 @@ Personal dotfiles managed with GNU Stow. Each top-level directory is a Stow "pac
 
 ## Common commands
 
-Driven by `Taskfile.yml` (`go-task`):
+`go-task --list` shows every task; each has a `desc:`, and the package lists live in the `vars` block of `Taskfile.yml`. Rather than restate them here (they drift), the only non-obvious bits:
 
-- `go-task` — install everything (`tools` + `desktop`).
-- `go-task tools` — stow only CLI tools (`bat`, `clangd`, `claude`, `direnv`, `fish`, `git`, `ideavim`, `nushell`, `nvim`, `psql`, `starship`).
-- `go-task desktop` — stow only the Wayland/desktop set (`alacritty`, `fuzzel`, `sway`, `swaylock`, `swaync`, `wallpapers`, `waybar`, `wezterm`, `wlogout`).
-- `go-task clean` — `stow --delete` the curated tool+desktop list.
-- `go-task purge` — `stow --delete */` (every package in the repo, including ones not in the curated lists like `tmux`, `zsh`, `zellij`, `niri`, `mangowc`, `tofi`, `zed`, `flameshot`, `systemd`).
+- `go-task clean` runs `stow --delete */` — it un-stows **every** package directory in the repo, not just the curated task lists.
+- Some package directories are checked in but belong to no task, so nothing installs them automatically — `stow <pkg>` by hand.
 
 After cloning, run `git submodule update --init --recursive` (zsh syntax-highlighting and autosuggestions are submodules under `zsh/.zsh/plugins/`).
 
@@ -22,11 +19,7 @@ There are no tests, linters, or build steps — Stow validates by symlinking; br
 
 ## Architecture notes
 
-- **Package = Stow target.** Adding a new tool means creating `<tool>/<path-under-home>/...` (typically `<tool>/.config/<tool>/...`) and adding the directory name to `TOOLS` or `DESKTOP` in `Taskfile.yml`. Packages not listed there still get stowed by the default `go-task` only if added to a list; `purge` catches them via the `*/` glob.
-- **`TOOLS` vs `DESKTOP` split** is intentional: tools install fine on a headless box; desktop packages assume a Wayland session. Keep this separation when adding packages.
-- **Submodules** (zsh plugins) are vendored, not package-managed — bumping them is a `git submodule update --remote` inside the submodule path.
-- **`scripts/`** is not a Stow package; it holds standalone helpers (`zellij-sessionizer.sh`, `unpushed.sh`, `danger.sh`, `backup-container.sh`) invoked from shell configs or by hand. They are not on `$PATH` automatically.
-- **`claude/.claude/`** stows to `~/.claude/` and contains `settings.json` plus `statusline-command.sh`. The repo also has a top-level `.claude/settings.local.json` which is *for this repo when used as a working directory*, not stowed.
-- **Neovim** uses `lazy.nvim` (`lazy-lock.json` is committed); plugins live as one file per plugin under `nvim/.config/nvim/lua/plugins/`, core config under `lua/core/`.
-- **Fish** auto-loads everything in `conf.d/`. `fish_variables*` are gitignored (machine-local universal vars) — do not commit them.
-- **Git config** is split: `git/.config/git/config` is the main file; `config-pro` is included conditionally for work paths; `catppuccin.gitconfig` provides the delta theme.
+- **Adding a package.** Create `<tool>/<path-under-home>/...` (typically `<tool>/.config/<tool>/...`) so its layout mirrors `$HOME`, then add the directory name to the appropriate list in the Taskfile `vars` block so a task installs it.
+- **The desktop split is intentional**, not incidental: `TOOLS` installs fine on a headless box, while the desktop lists assume a Wayland session — keep that separation when adding packages.
+- **`scripts/`** is not a Stow package; it holds standalone helpers invoked from shell configs or by hand, and is not added to `$PATH` automatically.
+- **Two different `.claude/` directories:** the `claude/` package stows to `~/.claude/` (global Claude Code config), while the repo-local top-level `.claude/` applies only when this repo is the working directory and is not stowed. Don't conflate them.
