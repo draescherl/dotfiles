@@ -15,7 +15,7 @@ vars:
     - fuzzel
     - wallpapers
     - waybar
-    - wlogout
+    - wleave
   TOOLS:
     - bat
     - clangd

@@ -5,7 +5,7 @@ binds {
     Mod+M { spawn "fuzzel"; }
     Mod+Return { spawn "alacritty"; }
     Mod+Shift+V { spawn-sh "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy && wtype -M ctrl -M shift -k v -m ctrl"; }
-    Mod+O { spawn "wlogout" "--buttons-per-row" "5" "--margin" "500"; }
+    Mod+O { spawn "wleave"; }
     Mod+Y { spawn "pkill" "-SIGUSR1" "waybar"; }        // hide waybar
     Mod+Shift+Y { spawn "pkill" "-SIGUSR2" "waybar"; }  // reload waybar
 
