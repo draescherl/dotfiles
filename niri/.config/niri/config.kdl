@@ -3,6 +3,7 @@ include "keybinds.kdl"
 include "layout.kdl"
 include "output.kdl"
 include "rules.kdl"
+include optional=true "host-specific.kdl"
 
 cursor {
     xcursor-theme "Adwaita"
