@@ -1,0 +1,43 @@
+{
+    "buttons-per-row": "5",
+    "margin": 500,
+    "show-keybinds": true,
+    "no-version-info": true,
+    "buttons": [
+        {
+            "label": "lock",
+            "action": "swaylock -f",
+            "text": "Lock",
+            "keybind": "l",
+            "icon": "/home/lucas/.config/wleave/icons/lock.svg"
+        },
+        {
+            "label": "sleep",
+            "action": "swaylock -f && sleep 2 && systemctl suspend",
+            "text": "Sleep",
+            "keybind": "s",
+            "icon": "/home/lucas/.config/wleave/icons/suspend.svg"
+        },
+        {
+            "label": "logout",
+            "action": "loginctl terminate-user $USER",
+            "text": "Exit",
+            "keybind": "e",
+            "icon": "/home/lucas/.config/wleave/icons/logout.svg"
+        },
+        {
+            "label": "reboot",
+            "action": "systemctl reboot",
+            "text": "Reboot",
+            "keybind": "r",
+            "icon": "/home/lucas/.config/wleave/icons/reboot.svg"
+        },
+        {
+            "label": "shutdown",
+            "action": "systemctl poweroff",
+            "text": "Shutdown",
+            "keybind": "d",
+            "icon": "/home/lucas/.config/wleave/icons/shutdown.svg"
+        }
+    ]
+}

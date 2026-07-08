@@ -1,0 +1,60 @@
+* {
+    box-shadow: none;
+    font-family: "JetBrainsMono Nerd Font";
+}
+
+window {
+    background-color: rgba(17, 17, 27, 0.65);
+}
+
+button {
+    color: #cdd6f4;
+    background-color: rgba(30, 30, 46, 0.97);
+    border: 2px solid rgba(49, 50, 68, 0.8);
+    border-radius: 10px;
+    margin: 5px;
+    outline: none;
+    transition: all 0.2s cubic-bezier(.55, 0.0, .28, 1.682);
+}
+
+button .icon-dropshadow {
+    margin: 4px 76px 10px 76px;
+    transition: all 0.2s cubic-bezier(.55, 0.0, .28, 1.682);
+}
+
+#lock     .icon-dropshadow { color: #89b4fa; }
+#sleep    .icon-dropshadow { color: #cba6f7; }
+#logout   .icon-dropshadow { color: #a6e3a1; }
+#reboot   .icon-dropshadow { color: #fab387; }
+#shutdown .icon-dropshadow { color: #f38ba8; }
+
+button label.action-name {
+    color: #cdd6f4;
+    font-size: 16pt;
+    font-weight: bold;
+}
+
+button label.keybind {
+    color: #6c7086;
+    font-size: 11pt;
+}
+
+/* Highlight on hover. */
+button:hover {
+    background-color: rgba(49, 50, 68, 0.9);
+    border-color: #89b4fa;
+}
+
+/* Zoom the icon on hover. */
+button:hover .icon-dropshadow {
+    margin-left: 64px;
+    margin-right: 64px;
+}
+
+button:hover label.keybind {
+    color: #89b4fa;
+}
+
+button:active {
+    background-color: rgba(49, 50, 68, 0.95);
+}
