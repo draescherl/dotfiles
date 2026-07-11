@@ -28,6 +28,8 @@ window-rule {
 // Windows blocked from screencast.
 window-rule {
     match app-id="proton-pass"
+    match app-id="1password"
+    match app-id="Slack"
     block-out-from "screencast"
 }
 
