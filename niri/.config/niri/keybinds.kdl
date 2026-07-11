@@ -1,5 +1,6 @@
 binds {
     // --- Core bindings -----------------------------------------------------
+    Mod+Shift+Escape { show-hotkey-overlay; }
     Mod+Shift+Q { close-window; }
     Mod+F { spawn "nautilus" "-w"; }
     Mod+M { spawn "fuzzel"; }
@@ -70,8 +71,6 @@ binds {
     Mod+Ctrl+Shift+L { move-workspace-to-monitor-right; }
     Mod+Ctrl+Shift+J { move-workspace-to-monitor-down; }
     Mod+Ctrl+Shift+K { move-workspace-to-monitor-up; }
-
-    Mod+Shift+N { spawn-sh "niri msg output eDP-1 toggle"; }
 
     // --- Niri-only -------------------------------------------------------
     Mod+Tab repeat=false { toggle-overview; }
