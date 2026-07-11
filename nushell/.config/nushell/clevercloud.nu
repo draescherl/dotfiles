@@ -1,5 +1,6 @@
 def addon_mappings []: nothing -> record {
      {
+        addon-cellar: "postgresql_17fa2c27-2027-4a90-9186-ec689f9cd8d8"
         addon-elasticsearch: "postgresql_4ea97bf7-3571-453f-8385-be45f2cfcc82"
         addon-jenkins: "postgresql_76cb1af1-5c57-46bb-a6e8-0a25480b9db3"
         addon-mongodb: "postgresql_56d5008c-3204-4915-b8c0-154bd55378d6"
