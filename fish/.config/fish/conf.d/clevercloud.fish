@@ -69,6 +69,51 @@ function exherbobackup
     end
 end
 
+function exherborestore
+    set -l MACHINE_PATH "/var/lib/machines/exherbo"
+    set -l BACKUP_DIR "$HOME/Documents/exherbo-backups"
+
+    # Find the most recent backup (names are timestamped, so newest sorts last)
+    set -l BACKUP_FILE (path sort --reverse $BACKUP_DIR/exherbo-*.tar.gz)[1]
+
+    if test -z "$BACKUP_FILE"
+        echo "Error: No backup found in $BACKUP_DIR" >&2
+        return 1
+    end
+
+    # Check if the machine is running
+    if machinectl status exherbo &>/dev/null
+        echo "Error: Machine 'exherbo' is currently running. Please stop it before restoring." >&2
+        echo "You can stop it with: sudo machinectl stop exherbo" >&2
+        return 1
+    end
+
+    echo "Latest backup: $BACKUP_FILE"
+    echo "This will ERASE $MACHINE_PATH and replace it with the backup contents."
+    read -l -P "Continue? [y/N] " confirm
+    if not string match -qi y -- "$confirm"
+        echo "Aborted."
+        return 1
+    end
+
+    # Make sure the target directory exists
+    sudo mkdir -p "$MACHINE_PATH" || return 1
+
+    # Wipe existing contents so removed files don't linger after restore
+    echo "Clearing $MACHINE_PATH"
+    sudo find "$MACHINE_PATH" -mindepth 1 -delete || return 1
+
+    # Restore with a progress bar (pv reads the file size automatically)
+    echo "Restoring from $BACKUP_FILE"
+    if pv "$BACKUP_FILE" | gzip -d | sudo tar -x -C "$MACHINE_PATH"
+        echo "Restore completed successfully into $MACHINE_PATH"
+        return 0
+    else
+        echo "Error: Restore failed" >&2
+        return 1
+    end
+end
+
 function cleverssh
     ssh -t bastion -- "source /data/bastion/.bashrc; $argv" 
 end
