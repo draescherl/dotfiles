@@ -1,6 +1,6 @@
 [backup]
 exclude-if-present = [".nobackup"]
-git-ignore = true
+git-ignore = false
 no-require-git = true
 
 globs = [
