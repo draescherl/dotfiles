@@ -48,12 +48,3 @@ layer-rule {
     match namespace="^notifications$"
     block-out-from "screencast"
 }
-
-// Render the swaybg wallpaper inside the overview backdrop (and behind all
-// workspaces) instead of a flat backdrop colour. swaybg's layer-shell
-// namespace is "wallpaper".
-layer-rule {
-    match namespace="^wallpaper$"
-    place-within-backdrop true
-}
-

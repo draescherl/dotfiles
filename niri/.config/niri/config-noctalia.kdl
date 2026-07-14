@@ -1,0 +1,25 @@
+include "./common/base.kdl"
+include "noctalia.kdl"
+
+binds {
+    // --- Menu / clipboard / session ----------------------------------------
+    Mod+M { spawn "noctalia" "msg" "panel-toggle" "launcher"; }
+    Mod+Shift+V { spawn "noctalia" "msg" "panel-toggle" "clipboard"; }
+    Mod+O { spawn "noctalia" "msg" "panel-toggle" "session"; }
+    Mod+N { spawn "noctalia" "msg" "panel-toggle" "control-center" "notifications"; }
+
+    // --- Audio -------------------------------------------------------------
+    XF86AudioRaiseVolume { spawn "noctalia" "msg" "volume-up"; }
+    XF86AudioLowerVolume { spawn "noctalia" "msg" "volume-down"; }
+    XF86AudioMute        { spawn "noctalia" "msg" "volume-mute"; }
+    Shift+XF86AudioMute  { spawn "noctalia" "msg" "mic-mute"; }
+    XF86AudioMicMute     { spawn "noctalia" "msg" "mic-mute"; }
+
+    // --- Brightness --------------------------------------------------------
+    XF86MonBrightnessDown { spawn "noctalia" "msg" "brightness-down"; }
+    XF86MonBrightnessUp   { spawn "noctalia" "msg" "brightness-up"; }
+}
+
+
+spawn-at-startup "noctalia"
+spawn-at-startup "xwayland-satellite"

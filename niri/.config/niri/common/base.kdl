@@ -1,0 +1,23 @@
+include "input.kdl"
+include "keybinds.kdl"
+include "layout.kdl"
+include "output.kdl"
+include "rules.kdl"
+include optional=true "host-specific.kdl"
+
+cursor {
+    xcursor-theme "Adwaita"
+    xcursor-size 24
+}
+
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+prefer-no-csd
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+environment {
+    ELECTRON_OZONE_PLATFORM_HINT "auto"
+}

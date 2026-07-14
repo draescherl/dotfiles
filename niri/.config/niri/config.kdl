@@ -1,25 +1,28 @@
-include "input.kdl"
-include "keybinds.kdl"
-include "layout.kdl"
-include "output.kdl"
-include "rules.kdl"
-include optional=true "host-specific.kdl"
+include "./common/base.kdl"
 
-cursor {
-    xcursor-theme "Adwaita"
-    xcursor-size 24
-}
+binds {
+    // --- Menu / clipboard / session ----------------------------------------
+    Mod+M { spawn "fuzzel"; }
+    Mod+Shift+V { spawn-sh "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy && wtype -M ctrl -M shift -k v -m ctrl"; }
+    Mod+O { spawn "wleave"; }
 
-screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+    // --- Waybar ------------------------------------------------------------
+    Mod+Y { spawn "pkill" "-SIGUSR1" "waybar"; }        // hide waybar
+    Mod+Shift+Y { spawn "pkill" "-SIGUSR2" "waybar"; }  // reload waybar
 
-prefer-no-csd
+    // --- Wallpaper ---------------------------------------------------------
+    Mod+Shift+W { spawn-sh "swaybg --image ~/wallpapers/current --mode fill & sleep 0.3; pkill -xo swaybg"; }
 
-hotkey-overlay {
-    skip-at-startup
-}
+    // --- Audio -------------------------------------------------------------
+    XF86AudioRaiseVolume { spawn "pactl" "set-sink-volume" "@DEFAULT_SINK@" "+5%"; }
+    XF86AudioLowerVolume { spawn "pactl" "set-sink-volume" "@DEFAULT_SINK@" "-5%"; }
+    XF86AudioMute        { spawn "pactl" "set-sink-mute" "@DEFAULT_SINK@" "toggle"; }
+    Shift+XF86AudioMute  { spawn "pactl" "set-source-mute" "@DEFAULT_SOURCE@" "toggle"; }
+    XF86AudioMicMute     { spawn "pactl" "set-source-mute" "@DEFAULT_SOURCE@" "toggle"; }
 
-environment {
-    ELECTRON_OZONE_PLATFORM_HINT "auto"
+    // --- Brightness --------------------------------------------------------
+    XF86MonBrightnessDown { spawn "brightnessctl" "set" "20%-"; }
+    XF86MonBrightnessUp   { spawn "brightnessctl" "set" "20%+"; }
 }
 
 spawn-sh-at-startup "swaybg --image ~/wallpapers/current --mode fill"
@@ -29,3 +32,5 @@ spawn-at-startup "waybar"
 spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "store"
 spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "store"
 spawn-at-startup "xwayland-satellite"
+
+include "noctalia.kdl"
