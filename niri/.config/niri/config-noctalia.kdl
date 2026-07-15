@@ -7,6 +7,7 @@ binds {
     Mod+Shift+V { spawn "noctalia" "msg" "panel-toggle" "clipboard"; }
     Mod+O { spawn "noctalia" "msg" "panel-toggle" "session"; }
     Mod+N { spawn "noctalia" "msg" "panel-toggle" "control-center" "notifications"; }
+    Mod+Shift+N { spawn "noctalia" "msg" "notification-clear-history"; }
 
     // --- Audio -------------------------------------------------------------
     XF86AudioRaiseVolume { spawn "noctalia" "msg" "volume-up"; }
