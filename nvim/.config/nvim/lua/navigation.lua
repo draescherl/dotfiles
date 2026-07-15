@@ -60,6 +60,20 @@ do
 		},
 	})
 
+	-- Make sure telescope-fzf-native is properly built so that the file picker
+	-- behaves as expected (a space = AND, not empty set).
+	do
+		local fzf = vim.iter(vim.pack.get()):find(function(p)
+			return p.spec.name == "telescope-fzf-native.nvim"
+		end)
+		if fzf and not vim.uv.fs_stat(fzf.path .. "/build/libfzf.so") and vim.fn.executable("make") == 1 then
+			local r = vim.system({ "make" }, { cwd = fzf.path }):wait()
+			if r.code ~= 0 then
+				vim.notify("fzf-native build failed:\n" .. (r.stderr or ""), vim.log.levels.ERROR)
+			end
+		end
+	end
+
 	-- Enable Telescope extensions if they are installed
 	pcall(require("telescope").load_extension, "fzf")
 	pcall(require("telescope").load_extension, "ui-select")
