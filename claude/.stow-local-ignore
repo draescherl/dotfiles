@@ -1,0 +1,2 @@
+^/\.gitignore$
+^/\.claude/(?!settings\.json$|statusline-command\.sh$).*
