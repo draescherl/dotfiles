@@ -1,0 +1,5 @@
+[Desktop Entry]
+# Required so that nm-applet isn't auto-started in order to separate the
+# noctalia and non-noctalia based configs. Starting it is left to the
+# compositor when required.
+Hidden=true

@@ -11,6 +11,7 @@ vars:
     - mako
   COMMON:
     - alacritty
+    - autostart
     - fuzzel
     - swaylock
     - wallpapers
