@@ -98,6 +98,13 @@ do
 		"https://github.com/OXY2DEV/markview.nvim",
 	})
 
+	-- Don't render on open, only when toggled via the keybind below.
+	require("markview").setup({
+		preview = {
+			enable = false,
+		},
+	})
+
 	vim.keymap.set("n", "<leader>mv", "<cmd>Markview toggle<cr>")
 end
 
