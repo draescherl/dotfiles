@@ -2,6 +2,7 @@
   "attribution": {
     "commit": ""
   },
+  "model": "opus[1m]",
   "statusLine": {
     "type": "command",
     "command": "bash $HOME/.claude/statusline-command.sh"
@@ -13,9 +14,9 @@
   },
   "effortLevel": "medium",
   "awaySummaryEnabled": false,
+  "tui": "fullscreen",
   "skipDangerousModePermissionPrompt": true,
   "theme": "auto",
   "remoteControlAtStartup": true,
-  "agentPushNotifEnabled": false,
-  "tui": "fullscreen"
+  "agentPushNotifEnabled": false
 }
