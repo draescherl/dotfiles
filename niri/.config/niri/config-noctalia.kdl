@@ -1,5 +1,5 @@
 include "./common/base.kdl"
-include "noctalia.kdl"
+include optional=true "noctalia.kdl"
 
 binds {
     // --- Menu / clipboard / session ----------------------------------------
