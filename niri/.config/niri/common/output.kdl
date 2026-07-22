@@ -10,5 +10,5 @@ output "eDP-1" {
 }
 
 output "Xiaomi Corporation Mi Monitor 0000000000000" {
-    mode "3440x1440@99.992"
+    mode "3440x1440@59.999"
 }
