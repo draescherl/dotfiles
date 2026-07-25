@@ -3,20 +3,12 @@
 version: '3'
 
 vars:
-  SWAY:
+  DESKTOPS:
     - sway
-    - swaync
-  NIRI:
     - niri
-    - mako
-  COMMON:
     - alacritty
-    - autostart
-    - fuzzel
-    - swaylock
     - wallpapers
-    - waybar
-    - wleave
+    - noctalia
   TOOLS:
     - bat
     - clangd
@@ -33,36 +25,16 @@ vars:
 
 tasks:
   default:
-    desc: Install Sway, Niri and tools.
+    desc: Install all.
     deps:
-      - common
-      - niri
-      - sway
       - tools
+    cmds:
+      - stow --verbose {{.DESKTOPS | join " "}}
 
   tools:
     desc: Install only tools.
     cmds:
       - stow --verbose {{.TOOLS | join " "}}
-
-  common:
-    desc: Install common desktop configs.
-    cmds:
-      - stow --verbose {{.COMMON | join " "}}
-
-  sway:
-    desc: Install only Sway.
-    cmds:
-      - stow --verbose {{.SWAY | join " "}}
-    deps:
-      - common
-
-  niri:
-    desc: Install only Niri.
-    cmds:
-      - stow --verbose {{.NIRI | join " "}}
-    deps:
-      - common
 
   clean:
     desc: Remove all dotfiles.
