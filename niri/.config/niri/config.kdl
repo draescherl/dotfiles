@@ -1,36 +1,26 @@
 include "./common/base.kdl"
+include optional=true "noctalia.kdl"
 
 binds {
     // --- Menu / clipboard / session ----------------------------------------
-    Mod+M { spawn "fuzzel"; }
-    Mod+Shift+V { spawn-sh "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy && wtype -M ctrl -M shift -k v -m ctrl"; }
-    Mod+O { spawn "wleave"; }
-
-    // --- Waybar ------------------------------------------------------------
-    Mod+Y { spawn "pkill" "-SIGUSR1" "waybar"; }        // hide waybar
-    Mod+Shift+Y { spawn "pkill" "-SIGUSR2" "waybar"; }  // reload waybar
-
-    // --- Wallpaper ---------------------------------------------------------
-    Mod+Shift+W { spawn-sh "swaybg --image ~/wallpapers/current --mode fill & sleep 0.3; pkill -xo swaybg"; }
+    Mod+M { spawn "noctalia" "msg" "panel-toggle" "launcher"; }
+    Mod+Shift+V { spawn "noctalia" "msg" "panel-toggle" "clipboard"; }
+    Mod+O { spawn "noctalia" "msg" "panel-toggle" "session"; }
+    Mod+N { spawn "noctalia" "msg" "panel-toggle" "control-center" "notifications"; }
+    Mod+Shift+N { spawn "noctalia" "msg" "notification-clear-history"; }
 
     // --- Audio -------------------------------------------------------------
-    XF86AudioRaiseVolume { spawn "pactl" "set-sink-volume" "@DEFAULT_SINK@" "+5%"; }
-    XF86AudioLowerVolume { spawn "pactl" "set-sink-volume" "@DEFAULT_SINK@" "-5%"; }
-    XF86AudioMute        { spawn "pactl" "set-sink-mute" "@DEFAULT_SINK@" "toggle"; }
-    Shift+XF86AudioMute  { spawn "pactl" "set-source-mute" "@DEFAULT_SOURCE@" "toggle"; }
-    XF86AudioMicMute     { spawn "pactl" "set-source-mute" "@DEFAULT_SOURCE@" "toggle"; }
+    XF86AudioRaiseVolume { spawn "noctalia" "msg" "volume-up"; }
+    XF86AudioLowerVolume { spawn "noctalia" "msg" "volume-down"; }
+    XF86AudioMute        { spawn "noctalia" "msg" "volume-mute"; }
+    Shift+XF86AudioMute  { spawn "noctalia" "msg" "mic-mute"; }
+    XF86AudioMicMute     { spawn "noctalia" "msg" "mic-mute"; }
 
     // --- Brightness --------------------------------------------------------
-    XF86MonBrightnessDown { spawn "brightnessctl" "set" "20%-"; }
-    XF86MonBrightnessUp   { spawn "brightnessctl" "set" "20%+"; }
+    XF86MonBrightnessDown { spawn "noctalia" "msg" "brightness-down"; }
+    XF86MonBrightnessUp   { spawn "noctalia" "msg" "brightness-up"; }
 }
 
-spawn-sh-at-startup "swaybg --image ~/wallpapers/current --mode fill"
-spawn-at-startup "blueman-applet"
-spawn-at-startup "nm-applet" "--indicator"
-spawn-at-startup "waybar"
-spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "store"
-spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "store"
-spawn-at-startup "xwayland-satellite"
 
-include "noctalia.kdl"
+spawn-at-startup "noctalia"
+spawn-at-startup "xwayland-satellite"
