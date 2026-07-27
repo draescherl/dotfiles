@@ -9,7 +9,7 @@ def addon_mappings []: nothing -> record {
         addon-postgresql-replica: "postgresql_cf409865-6cc2-4f19-9cd7-6e057a656f61"
         addon-redis: "postgresql_e8e6229f-6a94-4e2c-ae63-b39503cf5676"
         backup-manager: "postgresql_56bc260d-77b8-405c-bbc9-7d6ab39a18c2"
-        ccapi-leader: "postgresql_3be03fd1-f863-44e9-8c5a-4537c6127e2d"
+        ccapi-leader: "postgresql_30fd48f9-f217-48a0-a5b1-080c890a7b48"
         ccapi-replica: "postgresql_fd520155-ca81-4e4d-949e-08a699c85335"
         supernova-leader: "postgresql_da69be09-afda-4f54-9d02-00cc319ef544"
         supernova-replica: "postgresql_b05f93d7-3af3-4d10-ae90-e180fa703530"
