@@ -1,6 +1,5 @@
 binds {
     // --- Core bindings -----------------------------------------------------
-    Mod+Shift+Escape { show-hotkey-overlay; }
     Mod+Shift+Q { close-window; }
     Mod+F { spawn "nautilus" "-w"; }
     Mod+Return { spawn "alacritty"; }
@@ -30,6 +29,11 @@ binds {
     Mod+Equal      { set-column-width "+10%"; }
     Mod+Shift+parenright { set-window-height "-10%"; }
     Mod+Shift+Equal      { set-window-height "+10%"; }
+    Mod+R { switch-preset-column-width; }
+    Mod+Shift+R { switch-preset-window-height; }
+    Mod+Ctrl+R { reset-window-height; }
+    Mod+Shift+Z { maximize-column; }
+    Mod+Ctrl+F { expand-column-to-available-width; }
 
     // --- Workspaces (AZERTY number row) ------------------------------------
     Mod+ampersand  { focus-workspace 1; }
@@ -60,33 +64,16 @@ binds {
     Mod+Ctrl+Shift+K { move-workspace-to-monitor-up; }
 
     // --- Niri-only -------------------------------------------------------
+    Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+    Mod+Shift+Escape { show-hotkey-overlay; }
     Mod+Tab repeat=false { toggle-overview; }
-    Mod+R { switch-preset-column-width; }
-    Mod+Shift+R { switch-preset-window-height; }
-    Mod+Ctrl+R { reset-window-height; }
-    Mod+Shift+Z { maximize-column; }
 
     Mod+Home { focus-column-first; }
     Mod+End  { focus-column-last; }
-    Mod+Ctrl+Home { move-column-to-first; }
-    Mod+Ctrl+End  { move-column-to-last; }
-    Mod+Ctrl+J { move-column-to-workspace-down; }
-    Mod+Ctrl+K { move-column-to-workspace-up; }
 
-    Mod+BracketLeft  { consume-or-expel-window-left; }
-    Mod+BracketRight { consume-or-expel-window-right; }
     Mod+Comma { consume-window-into-column; }
     Mod+Shift+Comma { expel-window-from-column; }
 
-    Mod+Ctrl+F { expand-column-to-available-width; }
     Mod+C { center-column; }
     Mod+Ctrl+C { center-visible-columns; }
-
-    Ctrl+Print { screenshot-screen; }
-    Alt+Print  { screenshot-window; }
-
-    Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
-
-    Mod+Shift+E { quit; }
-    Ctrl+Alt+Delete { quit; }
 }
