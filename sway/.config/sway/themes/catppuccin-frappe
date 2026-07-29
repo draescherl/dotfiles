@@ -24,3 +24,5 @@ set $surface0 #414559
 set $base #303446
 set $mantle #292c3c
 set $crust #232634
+
+# vim: set ft=swayconfig:

@@ -16,3 +16,5 @@ client.unfocused        $outline  $surface  $on_surface_variant $outline   $outl
 client.urgent           $error    $surface  $on_surface         $error     $error
 client.placeholder      $surface  $surface  $on_surface_variant $surface   $surface
 client.background       $surface
+
+# vim: set ft=swayconfig:
