@@ -30,3 +30,4 @@ include /etc/sway/config.d/*
 
 # --- Autostart ---------------------------------------------------------
 exec noctalia
+exec wl-clip-persist --clipboard regular
