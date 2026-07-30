@@ -24,3 +24,4 @@ binds {
 
 spawn-at-startup "noctalia"
 spawn-at-startup "xwayland-satellite"
+spawn-at-startup "wl-clip-persist" "--clipboard" "regular"
