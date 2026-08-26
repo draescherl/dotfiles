@@ -22,7 +22,6 @@ set $brightUp $ipc brightness-up
 set $brightDown $ipc brightness-down
 
 # --- Includes ----------------------------------------------------------
-include ./noctalia
 include ./common/base.conf
 include ./modules/swayfx.conf
 include ./optional/*
@@ -31,3 +30,5 @@ include /etc/sway/config.d/*
 # --- Autostart ---------------------------------------------------------
 exec noctalia
 exec wl-clip-persist --clipboard regular
+
+include ~/.config/sway/noctalia
