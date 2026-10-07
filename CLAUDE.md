@@ -22,4 +22,4 @@ There are no tests, linters, or build steps — Stow validates by symlinking; br
 - **Adding a package.** Create `<tool>/<path-under-home>/...` (typically `<tool>/.config/<tool>/...`) so its layout mirrors `$HOME`, then add the directory name to the appropriate list in the Taskfile `vars` block so a task installs it.
 - **The desktop split is intentional**, not incidental: `TOOLS` installs fine on a headless box, while the desktop lists assume a Wayland session — keep that separation when adding packages.
 - **`scripts/`** is not a Stow package; it holds standalone helpers invoked from shell configs or by hand, and is not added to `$PATH` automatically.
-- **Two different `.claude/` directories:** the `claude/` package stows to `~/.claude/` (global Claude Code config), while the repo-local top-level `.claude/` applies only when this repo is the working directory and is not stowed. Don't conflate them.
+- **Two different `.claude/` locations:** the `claude/` package stows to `~/.claude/` (global Claude Code config). There is no repo-local top-level `.claude/` today. If one is added, it applies only when this repo is the working directory and must not be stowed.
