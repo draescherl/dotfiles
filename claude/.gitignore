@@ -5,3 +5,4 @@
 # … except the config we actually track.
 !.claude/settings.json
 !.claude/statusline-command.sh
+!.claude/CLAUDE.md
