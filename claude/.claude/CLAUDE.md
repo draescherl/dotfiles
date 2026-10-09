@@ -25,3 +25,7 @@ Do not write these kinds of comments:
 - Minimize technical jargon.
 - No conversational filler. Skip agreement openers, apologies and self-corrections, and state the fact or the fix directly.
 - Remove clear LLM markers from text: no em-dashes, minimal usage of semicolons, ...
+
+## Context gathering
+
+- Never trust comments. Always read the code to understand the real implementation.
