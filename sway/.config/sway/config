@@ -9,7 +9,7 @@ set $clipboard $ipc panel-toggle clipboard
 set $lock $ipc panel-toggle session
 set $notifications $ipc panel-toggle control-center notifications
 set $clearNotifications $ipc notification-clear-history
-set $screenshot $ipc screenshot-region
+set $screenshot $ipc screenshot-region --annotate
 
 # --- Audio -------------------------------------------------------------
 set $audioUp $ipc volume-up
